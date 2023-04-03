@@ -1,21 +1,24 @@
 import React from 'react'
-import pic from './pic.jpg'
+import pic from './LoginPage.png'
+import InputForm from './Form.js'
 export default function Login() {
 
   return (
-<div className='container card h-50 w-80' style={{marginTop:"10%"}}>
-  <div className="d-flex row g-0">
-    <div className="col-md-8">
-      <div className="card-body">
-        <h5 className="card-title mx-5">Hi! Welcome Back!</h5>
-        <p className="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p className="card-text"><small className="text-body-secondary">Last updated 3 mins ago</small></p>
+    <div className='d-flex flex-column flex-md-row'>
+      <div className='container card border-primary w-70 mt-5 mb-5 ms-3'>
+        <div className="col-md">
+          <div className="card-body mx-5 mt-5" style={{ fontFamily: 'Inter' }}>
+            <h2 className="card-title mt-5">Hi, Welcome Back!</h2>
+            <p className="card-text" style={{ color: "#6a6a6a" }}>Please put your login credentials below to start using the chatbot</p>
+            <InputForm />
+            <p className="card-text mt-4 text-center" style={{ color: "#6a6a6a" }}>Don't have an account?
+              <button type="button" className="btn btn-link">Sign up for free</button></p>
+          </div>
+        </div>
+      </div>
+      <div className="card border-0 shadow-lg mt-2">
+        <img src={pic} className="card-img img-fluid" />
       </div>
     </div>
-    <div className="col-md-4">
-      <img src={pic} className="img-fluid"/>
-    </div>
-  </div>
-</div>
   )
 }
