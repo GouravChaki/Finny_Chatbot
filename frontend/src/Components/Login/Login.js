@@ -13,11 +13,10 @@ export default function Login() {
             <InputForm/>
           </div>
         </div>
-        <div className="col-5">
         <div className="card">
-          <img src={pic} class="card-img" />
-        </div></div>
+          <img src={pic} className="card-img" />
       </div>
-    </div>
+      </div>
+      </div>
   )
 }
