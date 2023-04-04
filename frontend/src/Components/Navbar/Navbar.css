@@ -1,5 +1,5 @@
 .navbar-nav{
-    font-family: 'Inter, sans-serif';
+    font-family: 'Inter', 'sans-serif' !important ;
 }
 
 .navbar-nav .nav-link {
