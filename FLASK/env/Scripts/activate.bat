@@ -1,4 +1,4 @@
-@set "VIRTUAL_ENV=C:\Users\KIIT\Desktop\BroDoDo\FLASK\env"
+@set "VIRTUAL_ENV=C:\Users\KIIT\Desktop\BroDoDo\Finny_Chatbot\FLASK\env"
 
 @if defined _OLD_VIRTUAL_PROMPT (
     @set "PROMPT=%_OLD_VIRTUAL_PROMPT%"
