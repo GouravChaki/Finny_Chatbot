@@ -4,3 +4,10 @@
     border-top: 0;
     border-radius: 0;
 }
+
+@media (max-width:978px) {
+    .container{
+        padding: 0;
+        overflow-x: hidden;
+    }
+}
