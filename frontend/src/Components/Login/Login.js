@@ -4,8 +4,9 @@ import InputForm from './Form.js'
 export default function Login() {
 
   return (
+    <div className='container'>
     <div className='d-flex flex-column flex-md-row'>
-      <div className='container card border-primary w-70 mt-5 mb-5 ms-3'>
+      <div className='container card border-primary w-70 mt-5 mb-5 ms-3' style={{height:"85vh",width:"170vh"}}>
         <div className="col-md">
           <div className="card-body mx-5 mt-5" style={{ fontFamily: 'Inter' }}>
             <h2 className="card-title mt-5">Hi, Welcome Back!</h2>
@@ -16,9 +17,10 @@ export default function Login() {
           </div>
         </div>
       </div>
-      <div className="card border-0 shadow-lg mt-2">
-        <img src={pic} className="card-img img-fluid" />
+      <div className="mt-2">
+        <img src={pic} className="card-img img-fluid" style={{height:"95vh",width:"170vh"}} />
       </div>
+    </div>
     </div>
   )
 }
