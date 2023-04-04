@@ -1,7 +1,4 @@
-// import Container from 'react-bootstrap/Container';
-// import Nav from 'react-bootstrap/Nav';
-// import Navbar from 'react-bootstrap/Navbar';
-// import NavDropdown from 'react-bootstrap/NavDropdown';
+import { Link } from 'react-router-dom'
 import './Navbar.css'
 
 function Navbar() {
@@ -15,9 +12,9 @@ function Navbar() {
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <div class="navbar-nav ms-auto">
-              <a class="nav-link active px-5" aria-current="page" href="#" >Home</a>
-              <a class="nav-link px-5" href="#">Login</a>
-              <a class="nav-link px-5" href="#">Sign Up</a>
+              <Link class="nav-link active px-5" aria-current="page" to="/" >Home</Link>
+              <Link class="nav-link px-5" to="/login">Login</Link>
+              <Link class="nav-link px-5" to="/signup">Sign Up</Link>
               <a class="nav-link px-5" href="#">About Us</a>
               <a class="nav-link px-5" href="#">Contact Us</a>
             </div>
