@@ -31,7 +31,7 @@ export-env {
     }
 
     let is_windows = ($nu.os-info.name | str downcase) == 'windows'
-    let virtual_env = 'C:\Users\KIIT\OneDrive\Documents\Finny_Chatbot-1\FLASK\env'
+    let virtual_env = 'C:\Users\KIIT\Desktop\BroDoDo\Finny_Chatbot\FLASK\env'
     let bin = 'Scripts'
     let path_sep = (char esep)
     let path_name = if $is_windows {

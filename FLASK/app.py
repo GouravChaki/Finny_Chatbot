@@ -1,22 +1,18 @@
 from flask import Flask
 import requests
+import yfinance as yf
 app=Flask(__name__)
 
-key="H3BREHFF0JD7DQ5S"
-url = 'https://www.alphavantage.co/query'
+name="AAPL"
 @app.route('/')
 def hello():
-    data = {
-    "function": "TIME_SERIES_DAILY",
-    "symbol": "NIFTY",
-    "outputsize": "compact",
-    "datatype": "csv",
-    "apikey": "H3BREHFF0JD7DQ5S"
-    }
-    response = requests.get(url,params=data)
-    # data = response.json()
-    print(response.text)
-    return 'Hello World!'
+    dataset = yf.Ticker(name)
+    # get stock info
+    # print(msft.info)
+    # get historical market data
+    hist = dataset.history(period="500d")
+    print(hist)
+    return 'hello world'
 
 
 if __name__=="__main__":
