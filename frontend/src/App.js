@@ -3,16 +3,21 @@ import './App.css';
 import Login from './Components/Login/Login';
 import Signup from './Components/Signup/Signup';
 import Navbar from './Components/Navbar/Navbar';
+import HomePage from './Components/HomePage/HomePage';
 import {
   BrowserRouter as Router,
   Routes,
   Route,
   Link
 } from "react-router-dom";
+
 function App() {
   return (
     <Router>
     <Navbar/>
+    <Routes>
+      <Route path="/" element={<HomePage/>}></Route>
+    </Routes>
     <Routes>
       <Route path="/login" element={<Login/>}></Route>
     </Routes>
