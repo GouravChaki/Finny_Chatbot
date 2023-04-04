@@ -8,6 +8,7 @@
 
 .navbar-nav .nav-link.active {
     background-color: #0085FF;
+    color: #fafafa;
 }
 
 .navbar-nav .nav-link:hover {
