@@ -1,13 +1,16 @@
 import React from 'react'
+import Carousel from '../Carousel/Slider'
+import Midpage from '../Midpage/Mid'
 import Footer from '../Footer/Footer'
-import ChatPage from '../Chatbot/ChatPage'
 
 export default function HomePage(){
     return(
-        <div className='col-md justify-content-center'>
-            <ChatPage/>
-            <Footer/>
-        </div>
+    <div>
+        <Carousel/>
+        <Midpage />
+        <Footer/>
         
+    </div>
+       
     )
 }

@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Details.css'
+import Alert from './Alert'
 export default function Details() {
+  const [value,setValue]=useState()
+  const alert=()=>{
+    setValue(1)
+  }
 return (
 <div style={{fontFamily:'Inter'}}> 
 <form> 
@@ -19,9 +24,11 @@ return (
 </div>
 </div>
 <div className="d-grid gap-2 col-6 mx-auto">
-  <button className="btn btn-primary" id="signupbt" type="button">Sign Up</button>
+  <button className="btn btn-primary" id="signupbt" type="button" onClick={alert}>Sign Up</button>
 </div>
+{value && <Alert value={value} setValue={setValue}/>}
 </form>
+
 </div> 
     )
 }
