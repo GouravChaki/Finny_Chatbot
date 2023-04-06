@@ -23,7 +23,7 @@ const UserSchema = new Schema({
     },
 
     bot_content:[{ type: Schema.Types.ObjectId, ref: 'Bot' }],
-    user_content:[{ type: Schema.Types.ObjectId, ref: 'UserconSchema' }],
+    user_content:[{ type: Schema.Types.ObjectId, ref: 'Usercon' }],
 })
 
 mongoose.exports=mongoose.model('User',UserSchema)
