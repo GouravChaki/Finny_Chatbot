@@ -4,7 +4,7 @@ import pic from "./LoginPage.png";
 import Button from './Button_arrow'
 import Form from "./Form.js";
 
-export default function Login() {
+function Login(props) {
   return (
     //<div className='container'>
     <div className="d-flex flex-column flex-md-row">
@@ -20,7 +20,7 @@ export default function Login() {
               className="card-text mt-4 text-center"
               style={{ color: "#6a6a6a" }}
             >
-              
+
               Don't have an account?
               <button type="button" className="btn btn-link">
                 Sign up for free
@@ -31,24 +31,26 @@ export default function Login() {
             className="m-5 d-flex justify-content-center"
             style={{ width: "10%", height: "7%" }}
           >
-             <div
-            className="m-5 d-flex justify-content-center"
-            style={{ width: "10%", height: "7%" }}
-          >
-            <Button/>
+            <div
+              className="m-5 d-flex justify-content-center"
+              style={{ width: "10%", height: "7%" }}
+            >
+              <Button />
+            </div>
           </div>
         </div>
-      </div>
-      <div className="mt-1" style={{borderRight:"0px"}}>
-        <img
-          src={pic}
-          className="card-img img-fluid shadow-lg ml-4 rounded-left"
-          style={{ borderRadius: "50px" }}
-        />
+        <div className="mt-1" style={{ borderRight: "0px" }}>
+          <img
+            src={pic}
+            className="card-img img-fluid shadow-lg ml-4 rounded-left"
+            style={{ borderRadius: "50px" }}
+          />
+        </div>
       </div>
     </div>
-</div>
   );
 }
+
+export default Login;
 
 //image styling: style={{height:"95vh",width:"170vh"}}

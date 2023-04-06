@@ -1,7 +1,7 @@
 import React from 'react'
 import pic from './Homepage_robothandshakehumanbackgroundfuturisticdigitalage1.png'
-import picc from './P.jfif'
-import piccc from './R.jfif'
+import picc from './P.jfif.jpg'
+import piccc from './R.jfif.jpg'
 export default function Slider() {
 
  
