@@ -1,9 +1,6 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Form.css'
-
-
-
-    import Alert from './Alert'
+import Alert from './Alert'
     export default function InputForm() {
       const [value,setValue]=useState()
       const alert=()=>{

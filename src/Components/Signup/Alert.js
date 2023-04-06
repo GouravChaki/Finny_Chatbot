@@ -7,7 +7,7 @@ export default function Alert(props) {
   return (
     <div>
   <div class="alert sticky-top alert-warning alert-dismissible fade show" role="alert" style={{width: '100%'}}>
-       <strong>Successfully Signed In!</strong> 
+       <strong>You Have Successfully Signed In!</strong> 
        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onClick={close}></button>
   </div>
   </div>
