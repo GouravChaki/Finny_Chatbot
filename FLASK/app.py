@@ -1,18 +1,19 @@
-from flask import Flask
+from flask import Flask, request, Response
 import requests
 import yfinance as yf #importing yahoo finance api
 # from train import dance
 from model_nb_file_in_py_form import ml_model
 import pandas as pd
-
 app=Flask(__name__)
 
-name="NVR"
-@app.route('/')
-async def hello():
 
+@app.route('/',methods=['GET','POST'])
+async def hello():
+  if (request.method=='GET'):
+    name=request.get_json()
+    # print(name['data'])
     #getting dataset according to company nasdaq code
-    dataset = yf.Ticker(name)
+    dataset = yf.Ticker(name['data'])
     # print(dataset.info)
     
     # data history for that particular company
@@ -29,9 +30,10 @@ async def hello():
     p=model.predict([[20230405]])
     print(p)
     price=(p[0][0]+p[0][1]+p[0][2]+p[0][3])/4
-    print(price)
+    print(type([price]))
 
-    return 'FINNY IS GETTING READY GIVE HIME SOME TIME'
+    return [price]
+    # return 'hello'
 
 
 if __name__=="__main__":

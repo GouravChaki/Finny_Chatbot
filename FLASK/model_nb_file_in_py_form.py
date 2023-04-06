@@ -47,4 +47,5 @@ async def ml_model(dataset):
    #  yay=(p[0][0]+p[0][1]+p[0][2]+p[0][3])/4
    #  print("Price according to finny: ",yay)
    #  print("Mean_Sqaured_Error: ",m)
+   
     return model
