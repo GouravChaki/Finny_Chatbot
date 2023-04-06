@@ -4,7 +4,7 @@ const UserSchema = new Schema({
         type: string,
         required:true
     },
-    
+
     last_name:{
         type:string,
         required:true,
@@ -23,6 +23,7 @@ const UserSchema = new Schema({
     },
 
     bot_content:[{ type: Schema.Types.ObjectId, ref: 'Bot' }],
+    user_content:[{ type: Schema.Types.ObjectId, ref: 'UserconSchema' }],
 })
 
 mongoose.exports=mongoose.model('User',UserSchema)
