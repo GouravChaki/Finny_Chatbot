@@ -1,17 +1,11 @@
 const mongoose = require('mongoose')
-const Feature3 = new Schema({
-    _id: {
-        type: String,
-        unique: true,
-        required: true,
-    },
+const Feature4 = new Schema({
+    user_id: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+    
     c_name: {
         type: String,
     },
     hist_td: {         //time duration for which historical data was requested
-        type: String,
-    },
-    history: {
         type: String,
     },
     Date: {
@@ -20,6 +14,6 @@ const Feature3 = new Schema({
     },
 })
 
-mongoose.exports = mongoose.model('F3', Feature3)
+mongoose.exports = mongoose.model('F4', Feature4)
 
 

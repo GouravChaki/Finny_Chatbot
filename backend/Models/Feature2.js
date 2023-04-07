@@ -1,10 +1,7 @@
 const mongoose = require("mongoose");
 const Feature2 = new Schema({
-    _id: {
-        type: String,
-        unique: true,
-        required: true,
-    },
+    user_id: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+    feature1_ref: [{ type: Schema.Types.ObjectId, ref: "F1" }],
     price: {
         type: Number,
     },

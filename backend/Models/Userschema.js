@@ -22,13 +22,6 @@ const UserSchema = new Schema({
         unique: true
     },
 
-    f1: [{ type: Schema.Types.ObjectId, ref: 'F1' }],
-
-    f2: [{ type: Schema.Types.ObjectId, ref: 'F2' }],
-
-    f3: [{ type: Schema.Types.ObjectId, ref: 'F3' }],
-
-    f4: [{ type: Schema.Types.ObjectId, ref: 'F4' }],
     Date: {
         type: Date,
         default: Date.now

@@ -5,16 +5,15 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const fetch=require('../Fetch/Fetchuser')
 const router = express.Router();
-const JWT_SECRET ="jwtsecret"
-const market = require('../documents/market')
+const JWT_SECRET ="IamGargee"
 
-router.get('/',(req,res)=>{
+router.get('/auth',(req,res)=>{
     res.send('Hie! Finny is here!!')
 })
 
 //signup page user creation
 
-router.post('/createuser', [
+router.post('/auth/createuser', [
     body('first_name', 'length must be minimum 4').isLength({ min: 4 }),
     body('last_name', 'length must be minimum 4').isLength({ min: 4 }),
     body('email', 'not of email type').isEmail(),
@@ -55,7 +54,7 @@ router.post('/createuser', [
 //login page user fetching and validation
 
 
-router.post('/login', [
+router.post('/auth/login', [
     body('email','email is not right').isEmail(),
     body('password', 'password length must be minimum 3').isLength({ min: 3 })
 ], async (req, res) => {
@@ -100,7 +99,7 @@ router.post('/login', [
 
 // to fetch user
 
-router.post('/getuser',fetch, async (req,res)=>{
+router.post('/auth/getuser',fetch, async (req,res)=>{
     try{
         const user=await User.findById(req.id)
         res.json(user)
