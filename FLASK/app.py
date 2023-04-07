@@ -2,12 +2,12 @@ from flask import Flask, request, Response
 import requests
 import yfinance as yf #importing yahoo finance api
 # from train import dance
-from model_nb_file_in_py_form import ml_model
+from return_model import ml_model
 import pandas as pd
 app=Flask(__name__)
+from companies_list import companies
 
-
-@app.route('/',methods=['GET','POST'])
+@app.route('/yours_price',methods=['GET','POST'])
 async def hello():
   if (request.method=='GET'):
     name=request.get_json()
@@ -35,6 +35,17 @@ async def hello():
     return [price]
     # return 'hello'
 
+@app.route('/realtime',methods=['GET','POST'])
+async def realtime_data():
+     if (request.method=='GET'):
+        #extract price from json shared
+        price=request.get_json()
+
+        #send the price received to companies function
+
+        df=await companies(price['price'])# receive the intended dataframe
+        df=df.to_json()
+        return df
 
 if __name__=="__main__":
     app.run(debug=True,port=5000)
