@@ -4,7 +4,7 @@ u_id:{
     type:number,
     unique:true,
 },
-subject: string
+desc: string
 })
 
 mongoose.exports=mongoose.model('Usercon',UserconSchema)

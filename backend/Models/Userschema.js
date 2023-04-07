@@ -22,6 +22,11 @@ const UserSchema = new Schema({
         unique:true
     },
 
+    Date:{
+        type: Date,
+        default:Date.now
+    }
+
     bot_content:[{ type: Schema.Types.ObjectId, ref: 'Bot' }],
     user_content:[{ type: Schema.Types.ObjectId, ref: 'Usercon' }],
 })
