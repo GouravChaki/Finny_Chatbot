@@ -109,39 +109,4 @@ router.post('/getuser',fetch, async (req,res)=>{
         res.status(500).send("An error encountered")
     }
 })
-router.get('/', (req,res) => {
-    res.send("Hello this is backend Testing website")
-})
-
-//to get all data from marketplace collection
-
-router.get('/find',async (req,res)=>{
-    try{
-    let user = await market.find()
-    res.send(user)
-    }
-    catch(error)
-    {
-        res.status(404).send("No users created")
-    }
-})
-
-//post data into database from online api
-
-router.post('/post',async (req,res)=>{
-    try{
-        let m_item= await market.create({
-         code: res.data.results.code,
-         name: res.data.results.name,
-         image: res.data.results.images[0].url,
-         price: res.data.results.price.formattedValue,
-         brand: res.data.results.articleColorNames.brandName
-        })
-        console.log(m_item)
-    }
-    catch(error)
-    {
-       console.log(error)
-    }
-})
 module.exports=router
