@@ -1,7 +1,7 @@
 import { createChatBotMessage } from 'react-chatbot-kit';
 import BotOptions from './BotOptions';
 
-const botName = 'ExcitementBot';
+const botName = 'Finny';
 
 const config = {
     initialMessages: [createChatBotMessage(`Hi! I'm ${botName}`,

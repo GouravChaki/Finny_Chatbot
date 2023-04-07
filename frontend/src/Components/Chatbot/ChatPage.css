@@ -2,3 +2,10 @@
     min-height: 90vh;
   min-width: 90vw;
 }
+.react-chatbot-kit-chat-message-container {
+  min-height: 80vh;
+  min-width: auto;
+}
+.react-chatbot-kit-chat-bot-message-container {
+  align-items: start;
+}

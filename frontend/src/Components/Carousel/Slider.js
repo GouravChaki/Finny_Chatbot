@@ -1,7 +1,7 @@
 import React from 'react'
 import pic from './Homepage_robothandshakehumanbackgroundfuturisticdigitalage1.png'
-import picc from './P.jfif.jpg'
-import piccc from './R.jfif.jpg'
+import picc from './P.jfif'
+import piccc from './R.jfif'
 export default function Slider() {
 
  
@@ -13,7 +13,7 @@ export default function Slider() {
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
-  <div class="carousel-inner">
+  <div class="carousel-inner" style={{marginTop: '-71px'}}>
     <div class="carousel-item active">
       <img src={pic} class="d-block w-100" style={{height: '685px'}}/>
     </div>

@@ -2,8 +2,8 @@ import React from "react";
 
 const BotOptions = (props) => {
   const options = [
-    { text: "Question 1", handler: () => {}, id: 1 },
-    { text: "Question 2", handler: () => {}, id: 2 },
+    { text: "Do you want me to reccommend stock based on today's prices?", handler: () => {}, id: 1 },
+    { text: "I can also predict a future stock's price!", handler: () => {}, id: 2 },
     { text: "Question 3", handler: () => {}, id: 3 },
     { text: "Question 4", handler: () => {}, id: 4 },
     { text: "Question 5", handler: () => {}, id: 5 },
