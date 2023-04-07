@@ -2,15 +2,23 @@ const mongoose = require('mongoose')
 const Feature4 = new Schema({
     user_id: [{ type: Schema.Types.ObjectId, ref: 'User' }],
     
-    c_name: {
-        type: String,
-    },
-    hist_td: {         //time duration for which historical data was requested
-        type: String,
-    },
+    nasdaq: {type:String},
+
+    time_duration: {type: String},
+
+    output: [{
+        date:[{type:String}],
+        open:[{type:Number}],
+        high:[{type:Number}],
+        low:[{type:Number}],
+        close:[{type:Number}],
+        volume:[{type:Number}],
+        dividends:[{type:Number}]
+    }],
+
     Date: {
         type: Date,
-        default: Date.now
+        default: Date.now,
     },
 })
 

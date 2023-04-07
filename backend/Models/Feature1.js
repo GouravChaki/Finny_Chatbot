@@ -9,8 +9,14 @@ const Feature1 = new Schema({
 
     c_names: [
         {
-            type: String,
-        },
+            index: [{type: Number}],
+            symbol: [{type: String}],
+            name: [{type:String}],
+            last_price: [{type:Number}],
+            last_5: [{type:Number}],
+            last_7:[{type:Number}],
+            last_10: [{type: Number}],
+        }
     ],
 
     Date: {
