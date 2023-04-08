@@ -6,16 +6,16 @@ export default function Login() {
   return (
     //<div className='container'>
     <div className="d-flex flex-column flex-md-row">
-      <div className="container card border-primary w-70 mt-5 mb-5 ms-3">
-        <div className="col-md">
-          <div className="card-body mx-5 mt-5" style={{ fontFamily: "Inter" }}>
+      <div className="container card border-primary w-70 mt-1 mb-5 ms-3">
+        <div className="col-md" style={{marginTop: '-41px'}}>
+          <div className="card-body mx-5 mt-5" style={{ fontFamily: "Inter" ,height: '350px',paddingTop: '1%',paddingBottom: '120px'}}>
             <h2 className="card-title mt-5">Hi, Welcome Back!</h2>
             <p className="card-text" style={{ color: "#6a6a6a" }}>
               Please put your login credentials below to start using the chatbot
             </p>
             <InputForm />
             <p
-              className="card-text mt-4 text-center"
+              className="card-text mt- text-center"
               style={{ color: "#6a6a6a" }}
             >
               Don't have an account?
@@ -25,16 +25,16 @@ export default function Login() {
             </p>
           </div>
           <div
-            className="m-5 d-flex justify-content-center"
-            style={{ width: "10%", height: "7%" }}
+            className="m-5 d-flex justify-content-center "
+            style={{ width: "1%", height: "7%",paddingLeft: '1px',paddingTop: '10px' }}
           >
              <Link to="/"
-              className="btn btn-primary shadow-lg mb-5 w-100 h-100"
+              className="btn btn-primary shadow-lg mb-1 w-100 h-100"
               style={{ borderRadius: "50px" }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                style={{ margin: "6px" }}
+                style={{ marginLeft: "-12px" ,marginTop: "-11px"}}
                 width="25"
                 height="25"
                 fill="white"
@@ -50,11 +50,11 @@ export default function Login() {
           </div>
         </div>
       </div>
-      <div className="mt-1" style={{borderRight:"0px"}}>
+      <div className="mt-2" style={{borderRight:"0px"}}>
         <img
           src={pic}
           className="card-img img-fluid shadow-lg ml-4 rounded-left"
-          style={{ borderRadius: "50px" }}
+          style={{ marginTop: '13px',borderRadius: "56px",height: '650px',width: '1300px' }}
         />
       </div>
     </div>

@@ -1,8 +1,18 @@
 import React from 'react'
+import Carousel from '../Carousel/Slider'
+import Midpage from '../Midpage/Mid'
 import Footer from '../Footer/Footer'
-import ChatPage from '../Chatbot/ChatPage'
+import Navbar from '../Navbar/Navbar'
+
 export default function HomePage(){
     return(
-        <ChatPage/>
+    <div>
+        <Navbar/>
+        <Carousel/>
+        <Midpage />
+        <Footer/>
+        
+    </div>
+       
     )
 }
