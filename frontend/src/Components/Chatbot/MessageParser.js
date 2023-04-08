@@ -5,12 +5,26 @@ const MessageParser = ({ children, actions }) => {
   const a=useContext(Context)
   // var re = new RegExp("/([1-9][0-9]*)/");
   const parse = (message) => {
-    if (message.includes('hello')) {
+    const lowerCaseMessage = message.toLowerCase();
+    if (lowerCaseMessage.includes('hello')) {
         actions.handleHello();
     }
-  //   if (message.includes(re)) {
-  //     actions.todayStockPriceRecommend();
-  // }
+  if (lowerCaseMessage.includes('nasdaq1')) {
+    //recommend stock on future price
+       actions.recommend2();
+   }
+   if (lowerCaseMessage.includes('nasdaq2')) {
+    //find future price of a stock
+    actions.recommend2();
+}
+if (lowerCaseMessage.includes('nasdaq3')) {
+  //historical data of a company
+  actions.showData();
+}
+if (lowerCaseMessage.includes('budget')) {
+  //recommend stock on user budget
+     actions.recommend1();
+ }
   };
 
   return (
