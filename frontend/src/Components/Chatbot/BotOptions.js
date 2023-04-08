@@ -1,14 +1,17 @@
 import React from "react";
+import {useContext} from "react";
 import ActionProvider from "./ActionProvider.js";
 import { CustomStep } from 'react-chatbot-kit';
 
-export default function BotOptions({ triggerNextStep }) {
+export default function BotOptions({ triggerNextStep ,children, actions }) {
+  // const change=(event)=>{
+  //   actions.todayStockPriceRecommend();
+  // }
   const options = [
-    { text: "Hey! Do you want me to recommend stocks based on today's price?", id: 1 },
-    { text: "Or I can also recommend stocks based on their future price!", id: 2 },
-    { text: "Give me a company name and I'll predict their stock price for you!", id: 3 },
-    { text: "You can also use me to see a company's historical data...", id: 4 },
-    { text: "Do you want me to recommend stocks based on your budget?", id: 5 },
+    { text: "Hey! Do you want me to recommend stocks based on yours's price?",handler:()=>{actions.feature_1()},id: 1 },
+    { text: "Compare between two stocks",handler:()=>{actions.feature_2()}, id: 2 },
+    { text: "Future price of a stock",handler:()=>{actions.feature_3()}, id: 3 },
+    { text: "Historical data of a stock", handler:()=>{actions.feature_4()}, id: 4 },
   ];
   const handleClick = (value) => {
     triggerNextStep({value});

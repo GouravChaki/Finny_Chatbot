@@ -1,14 +1,16 @@
 import React from 'react';
-
+import {useContext} from 'react';
+import Context from '../Context_api/Context'
 const MessageParser = ({ children, actions }) => {
-  var re = new RegExp("/([1-9][0-9]*)/");
+  const a=useContext(Context)
+  // var re = new RegExp("/([1-9][0-9]*)/");
   const parse = (message) => {
     if (message.includes('hello')) {
         actions.handleHello();
     }
-    if (message.includes(re)) {
-      actions.todayStockPriceRecommend();
-  }
+  //   if (message.includes(re)) {
+  //     actions.todayStockPriceRecommend();
+  // }
   };
 
   return (
@@ -16,7 +18,7 @@ const MessageParser = ({ children, actions }) => {
       {React.Children.map(children, (child) => {
         return React.cloneElement(child, {
           parse: parse,
-          actions: {},
+          actions,
         });
       })}
     </div>

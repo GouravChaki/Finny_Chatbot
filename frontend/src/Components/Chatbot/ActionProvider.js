@@ -10,13 +10,37 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
         }));
     };
 
-    const todayStockPriceRecommend = () => {
-      const botMessage = createChatBotMessage('Please enter a number: ');
+    const feature_1 = () => {
+      const botMessage = createChatBotMessage('feature_1: ');
       setState((prev) => ({
           ...prev,
           messages: [...prev.messages, botMessage],
       }));
-  };
+    }
+    const feature_2 = () => {
+        const botMessage = createChatBotMessage('feature_2: ');
+        setState((prev) => ({
+            ...prev,
+            messages: [...prev.messages, botMessage],
+        }));
+    }
+
+
+    const feature_3 = () => {
+          const botMessage = createChatBotMessage('feature_3: ');
+          setState((prev) => ({
+              ...prev,
+              messages: [...prev.messages, botMessage],
+          }));
+    }
+
+    const feature_4 = () => {
+            const botMessage = createChatBotMessage('feature_4: ');
+            setState((prev) => ({
+                ...prev,
+                messages: [...prev.messages, botMessage],
+            }));
+      }
 
   return (
     <div>
@@ -24,7 +48,10 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
         return React.cloneElement(child, {
           actions: {
             handleHello,
-            todayStockPriceRecommend,
+            feature_1,
+            feature_2,
+            feature_3,
+            feature_4
           },
         });
       })}
