@@ -10,16 +10,15 @@ const MessageParser = ({ children, actions }) => {
     var code;
     if (lowerCaseMessage.includes('budget')) {
       //recommend stock on user budget
-      try{
-      var num = lowerCaseMessage.match(/\d+\.?\d*/)[0];
-      num = parseFloat(num); //num extracted to be sent to back-end
-      actions.recommend1();
+      try {
+        var num = lowerCaseMessage.match(/\d+\.?\d*/)[0];
+        num = parseFloat(num); //num extracted to be sent to back-end
+        actions.recommend1();
       }
-      catch(e)
-      {
+      catch (e) {
         actions.wrongInput();
       }
-      
+
     }
 
     if (lowerCaseMessage.includes('hello')) {
@@ -28,56 +27,53 @@ const MessageParser = ({ children, actions }) => {
 
     if (lowerCaseMessage.includes('nasdaq1')) {
       //recommend stock on future price
-      try{
+      try {
         lowerCaseMessage = lowerCaseMessage.replace("nasdaq1", '');
-      code = lowerCaseMessage.replace(/[^A-Za-z' ']/g,'');
-      lowerCaseMessage = lowerCaseMessage.replace(",", ' ');
-      code = code.toUpperCase(); //NASDAQ Codes Extracted from message
-      var num = lowerCaseMessage.match(/\d+\.?\d*/)[0];
-      num = parseInt(num); //no. of days
-      actions.recommend2();
+        code = lowerCaseMessage.replace(/[^A-Za-z' ']/g, '');
+        lowerCaseMessage = lowerCaseMessage.replace(",", ' ');
+        code = code.toUpperCase(); //NASDAQ Codes Extracted from message
+        var num = lowerCaseMessage.match(/\d+\.?\d*/)[0];
+        num = parseInt(num); //no. of days
+        actions.recommend2();
       }
-      catch(e)
-      {
+      catch (e) {
         actions.wrongInput();
       }
-      
+
     }
 
     if (lowerCaseMessage.includes('nasdaq2')) {
       //find future price of a stock
-      try{
+      try {
         lowerCaseMessage = lowerCaseMessage.replace("nasdaq2", '');
-      code = lowerCaseMessage.replace(/[^A-Za-z]/g,'');
-      code = code.toUpperCase(); //NASDAQ Code Extracted from message
-      var num = lowerCaseMessage.match(/\d+\.?\d*/)[0];
-      num = parseInt(num); //no. of days
-      actions.recommend2();
+        code = lowerCaseMessage.replace(/[^A-Za-z]/g, '');
+        code = code.toUpperCase(); //NASDAQ Code Extracted from message
+        var num = lowerCaseMessage.match(/\d+\.?\d*/)[0];
+        num = parseInt(num); //no. of days
+        actions.recommend2();
       }
-      catch(e)
-      {
+      catch (e) {
         actions.wrongInput();
       }
-      
+
     }
 
     if (lowerCaseMessage.includes('nasdaq3')) {
       //historical data of a company
-      try{
+      try {
         lowerCaseMessage = lowerCaseMessage.replace("nasdaq3", '');
-      code = lowerCaseMessage.replace(/[^A-Za-z]/g,'');
-      code = code.toUpperCase(); //NASDAQ Code Extracted from message
-      var date = lowerCaseMessage.match('[0-9]{4}([\-/ ])[0-9]{2}[\-/ ][0-9]{2}')[0];//date extracted as string
+        code = lowerCaseMessage.replace(/[^A-Za-z]/g, '');
+        code = code.toUpperCase(); //NASDAQ Code Extracted from message
+        var date = lowerCaseMessage.match('[0-9]{4}([\-/ ])[0-9]{2}[\-/ ][0-9]{2}')[0];//date extracted as string
         actions.showData();
       }
-      catch(e)
-      {
+      catch (e) {
         actions.wrongInput();
       }
-      
-      
+
+
     }
-    
+
   };
 
   return (

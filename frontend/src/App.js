@@ -20,9 +20,7 @@ function App() {
   const [count, setCount] = useState(0)
   return (
     <ContextData>
-      <ChatPage />
-      {/* <Router>
-        
+      <Router>
         <Maybeshownavbar>
           <Navbar />
         </Maybeshownavbar>
@@ -35,7 +33,10 @@ function App() {
         <Routes>
           <Route path="/signup" element={<Signup />}/>
         </Routes>
-      </Router> */}
+        <Routes>
+        <Route path="/finny" element={<ChatPage />}/>
+        </Routes>
+      </Router>
     </ContextData>
   );
 }

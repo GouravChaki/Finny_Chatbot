@@ -1,5 +1,6 @@
 import React from 'react'
 import pic from './Homepage__20058480_62400571.png'
+import {Link} from "react-router-dom";
 
 export default function mid() {
    return (
@@ -22,27 +23,16 @@ export default function mid() {
           id est laborum.
       </p>
 
-     <button class="btn btn-primary" type="submit" style={{marginTop: '18%',paddingLeft: '50px',paddingRight: '50px'}}>Login</button>
-     <button class="btn btn-primary" type="submit" style={{marginTop: '18%',paddingLeft: '50px',paddingRight: '50px',marginLeft: '20px'}}>SignUp</button>
-     
-     
-
-    
-          
-       </div>
+     <button class="btn btn-primary mt-4" type="submit"><Link to="/login" style={{ color: 'inherit', textDecoration: 'inherit'}}>Login</Link></button>
+     <button class="btn btn-primary mx-4 mt-4" type="submit"><Link to="/signup" style={{ color: 'inherit', textDecoration: 'inherit'}}>Signup</Link></button>   
+     <button class="btn btn-primary w-70 mt-4" style={{marginLeft:'100vh'}} ><Link to="/finny" style={{ color: 'inherit', textDecoration: 'inherit'}}>Try Finny!</Link></button>
+    </div>
     <div>
         <div>
-          <img src={pic} class="rounded float-end" style={{width: '83%',marginTop: '18vh', marginRight: '7%'}} />
+          <img src={pic} class="rounded mx-4" style={{width: '75%',marginTop: '4vh'}} />
         </div> 
-        <div style={{marginTop: '490px', marginLeft: '125px'}}>
-          <button class="btn btn-primary" type="submit" style={{paddingLeft: '120px',paddingRight: '120px',borderRadius: '20px'}}>Try ChatBOT</button>
-        </div>
     </div>
-       </div>
-       
-     
-       
-        
-       </>
+    </div>
+ </>
    )
  }

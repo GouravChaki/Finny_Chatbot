@@ -18,15 +18,32 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
       messages: [...prev.messages, botMessage],
     }));
   }
-  const feature_2 = () => {
+  const feature_2_1 = () => {
     //recommend stock on future price
-    const botMessage = createChatBotMessage('Enter a NASDAQ Codes as [ NASDAQ1: (code1) (code2) ] and number of days: ');
+    const botMessage = createChatBotMessage('Enter data as [NASDAQ1.1: (code1)] ');
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, botMessage],
     }));
   }
 
+  const feature_2_2 = () => {
+    //recommend stock on future price
+    const botMessage = createChatBotMessage('Enter data as [NASDAQ1.2: (code1)] ');
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, botMessage],
+    }));
+  }
+
+  const feature_2_3 = () => {
+    //recommend stock on future price
+    const botMessage = createChatBotMessage('Enter number of days as Days: ');
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, botMessage],
+    }));
+  }
 
   const feature_3 = () => {
     //find future price of a stock
@@ -90,7 +107,9 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
           actions: {
             handleHello,
             feature_1,
-            feature_2,
+            feature_2_1,
+            feature_2_2,
+            feature_2_3,
             feature_3,
             feature_4,
             recommend1,
