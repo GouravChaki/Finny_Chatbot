@@ -2,13 +2,17 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 export default function button() {
     return (
-        <Link to="/"
+      <div
+      className="m-5 d-flex justify-content-center "
+      style={{ width: "51%", height: "97%",paddingLeft: '1px',paddingTop: '10px' }}
+    >
+       <Link to="/"
         className="btn btn-primary shadow-lg mb-5 w-100 h-100"
         style={{ borderRadius: "50px" }}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          style={{ margin: "6px" }}
+          style={{ marginLeft: "-12px" ,marginTop: "-9px"}}
           width="25"
           height="25"
           fill="white"
@@ -21,5 +25,6 @@ export default function button() {
           />
         </svg>
       </Link>
+    </div>
       )
 }

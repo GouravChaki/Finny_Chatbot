@@ -1,10 +1,12 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './Form.css'
-
-export default function InputForm() {
-
-
-    return (
+import Alert from './Alert'
+    export default function InputForm(){
+      const [value,setValue]=useState()
+      const alert=()=>{
+        setValue(1)
+      }
+return (
         <div style={{fontFamily:'Inter'}}>
         <form>
             <div className="mt-5">
@@ -15,11 +17,15 @@ export default function InputForm() {
                 
                 <input type="password" className="form-control" id="Pass" placeholder='Password'/>
             </div>
-            <button className="btn btn-primary w-100 shadow" type="submit">Login</button>
+            <div>
+            <button className="btn btn-primary w-100 shadow" type="submit" onClick={alert}>Login</button>
+            </div>
+            {value && <Alert value={value} setValue={setValue}/>}
         </form>
         </div>
     )
 }
+
 
 {/* <label htmlFor="Email" className="form-label">Enter Email</label>
 <label htmlFor="Pass" className="form-label">Enter Password</label> */}

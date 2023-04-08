@@ -13,15 +13,15 @@ export default function Slider() {
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
   </div>
-  <div class="carousel-inner" style={{marginTop: '-71px'}}>
+  <div class="carousel-inner"  style={{marginTop: '-1px'}}>
     <div class="carousel-item active">
-      <img src={pic} class="d-block w-100" style={{height: '685px'}}/>
+      <img src={pic} class="d-block w-100" style={{height: '686px'}}/>
     </div>
     <div class="carousel-item">
-      <img src={picc} class="d-block w-100" style={{height: '685px'}} />
+      <img src={picc} class="d-block w-100" style={{height: '686px'}} />
     </div>
     <div class="carousel-item">
-      <img src={piccc} class="d-block w-100" style={{height: '685px'}}/>
+      <img src={piccc} class="d-block w-100" style={{height: '686px'}}/>
     </div>
   </div>
   <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">

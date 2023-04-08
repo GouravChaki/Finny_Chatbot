@@ -1,26 +1,58 @@
 import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
 import './Navbar.css'
 
-function Navbar(props) {
+const Navbar = () => {
+    const [navbar, setNavbar] = useState(false);
+    const changeBg = () => {
+      if (window.scrollY >= 100){
+        setNavbar(true);
+      }else{
+        setNavbar(false);
+      }
+    };
+    window.addEventListener("scroll", changeBg);
     return (
-
-        <nav class="navbar navbar-expand-lg sticky-top navbar-primary bg-*">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Finny</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"/>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <div class="navbar-nav ms-auto">
-              <Link class="nav-link active px-5" aria-current="page" to="/" >Home</Link>
-              <Link class="nav-link px-5" to="/login" >Login</Link>
-              <Link class="nav-link px-5" to="/signup">Sign Up</Link>
-              <a class="nav-link px-5" href="#">About Us</a>
-              <a class="nav-link px-5" href="#">Contact Us</a>
-            </div>
+       <>
+       <nav 
+         className={
+          navbar 
+             ? "navbar scroll navbar-expand-sm fixed-top" 
+             : "navbar navbar-expand-sm fixed-top"
+         }
+       >
+        
+        <a href='#' className='navbar-brand'>
+            <h5>Finny</h5>
+        </a>
+        <div>
+        <div class="navbar-nav">
+          <div className='nav-item'>
+             <Link class="nav-link" to="/">Home</Link>
           </div>
+          <div className='nav-item'>
+             <Link class="nav-link" to="/login" >Login</Link>
+          </div>
+          <div className='nav-item'>
+             <Link class="nav-link" to="/signup">Sign Up</Link>
+          </div>
+          <div className='nav-item'>
+             <a class="nav-link" href="#">About Us</a>
+          </div>
+          <div className='nav-item'>
+             <a class="nav-link" href="#">Contact Us</a>
+          </div>
+          {/* </div>
+              <Link class="nav-link" to="/">Home</Link>
+              <Link class="nav-link" to="/login" >Login</Link>
+              <Link class="nav-link" to="/signup">Sign Up</Link>
+              <a class="nav-link" href="#">About Us</a>
+              <a class="nav-link" href="#">Contact Us</a>
+            </div> */}
+         </div>
         </div>
-      </nav>
+       </nav>
+       </>
     );
 }
 
