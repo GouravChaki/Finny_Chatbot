@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
-const Feature3 = new Schema({
-    user_id: { type: Schema.Types.ObjectId, ref: 'User' },
+const Feature3 = new mongoose.Schema({
+    user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     
     nasdaq: {type: String},
 

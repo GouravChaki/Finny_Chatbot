@@ -1,6 +1,6 @@
 const express = require('express')
 const { body, validationResult } = require('express-validator')
-const User = require('../documents/user')
+const User = require('../Models/Userschema')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const fetch=require('../Fetch/Fetchuser')
@@ -11,10 +11,11 @@ const F2 = require('../Models/Feature2')
 const F3 = require('../Models/Feature3')
 const F4 = require('../Models/Feature4')
 const axios = require('axios')
-url1=''
-url2=''
-url3=''            //these are flask urls
-url4=''
+url1='http://127.0.0.1:5000/yours_price'
+url2='http://127.0.0.1:5000/compare'
+url3='http://127.0.0.1:5000/indvidual_company'            //these are flask urls
+url4='http://127.0.0.1:5000/historical_data'
+
 router.get('/history/feature1',fetch,async (req,res)=>{
     try{
     const feature1 = await F1.find({user: req.user.id}).limit(4)
@@ -70,7 +71,7 @@ if(!err.isEmpty())
     return res.status(400).send({errors:err.array()})
     }
 try{
-    const desc = await axios.post(url1,price)
+    const desc = await axios.post(url1,req.body.price)
     desc = JSON.parse(desc)
     const index1 = []
     const symbol1 = []
@@ -105,13 +106,11 @@ try{
     }
 F1.push(ob)
 }
-catch{
+catch(error){
     console.error(error.message)
     res.status(500).send("Interal server error")
 }
 })
-
-<<<<<<< HEAD
 router.post('/add/feature2',fetch,[body('nasdaq','nasdaq codes should not be empty').notEmpty(),body('days_after','days_after should not be empty').notEmpty()],async (req,res)=>{
     const err = validationResult(req)
     if(!err.isEmpty())
@@ -143,7 +142,6 @@ router.post('/add/feature2',fetch,[body('nasdaq','nasdaq codes should not be emp
         res.status(500).send("Interal server error")
     }
     })
-=======
 // router.post('/add/feature2',fetch,[body('nasdaq','nasdaq codes should not be empty').notEmpty(),body('days_after','days_after should not be empty').notEmpty()],async (req,res)=>{
 //     const err = validationResult(req)
 //     if(!err.isEmpty())
@@ -175,7 +173,6 @@ router.post('/add/feature2',fetch,[body('nasdaq','nasdaq codes should not be emp
 //         res.status(500).send("Interal server error")
 //     }
 //     })
->>>>>>> e58fe0c26d67108d9487dbedb3e9398d141e7538
 
 router.post('/add/feature3',fetch,[body('nasdaq','nasdaq should not be empty').notEmpty(),body('p_date','p_date should not be empty').notEmpty(),],async (req,res)=>{
     const err = validationResult(req)
@@ -249,3 +246,5 @@ router.post('/add/feature3',fetch,[body('nasdaq','nasdaq should not be empty').n
             res.status(500).send("Interal server error")
         }
         })
+
+module.exports=router

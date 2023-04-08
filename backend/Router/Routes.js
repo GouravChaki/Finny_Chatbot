@@ -1,6 +1,6 @@
 const express = require('express')
 const { body, validationResult } = require('express-validator')
-const User = require('../documents/user')
+const User = require('../Models/Userschema')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 const fetch=require('../Fetch/Fetchuser')
@@ -14,19 +14,19 @@ router.get('/auth',(req,res)=>{
 //signup page user creation
 
 router.post('/auth/createuser', [
-    body('first_name', 'length must be minimum 4').isLength({ min: 4 }),
-    body('last_name', 'length must be minimum 4').isLength({ min: 4 }),
+    body('firstname', 'length must be minimum 2').isLength({ min: 2 }),
+    body('lastname', 'length must be minimum 2').isLength({ min: 2 }),
     body('email', 'not of email type').isEmail(),
-    body('password', 'password length must be minimum 5').isLength({ min: 3 }),
-    body('date','date should not be empty').notEmpty(),
-], async (req, res) => {
-    const error = validationResult(req);
+    body('password', 'password length must be minimum 2').isLength({ min: 2 }),
+],async (req, res) => {
+    const error = validationResult(req); 
     if (!error.isEmpty()) {
         return res.status(404).json({ error: error.array() });
     }
     try{
+        console.log(req.body)
         let user = await User.findOne({email:req.body.email})
-        console.log(user)
+        console.log('hello')
     if(user)
     {
         return res.status(600).json({error:{msg:"A user with this email id already exists"}})
@@ -108,4 +108,5 @@ router.post('/auth/getuser',fetch, async (req,res)=>{
         res.status(500).send("An error encountered")
     }
 })
+
 module.exports=router
