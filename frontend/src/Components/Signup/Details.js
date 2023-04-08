@@ -1,15 +1,24 @@
-import React, { useState } from 'react'
+import React, { useState , useContext ,useEffect } from 'react'
+import Context from "../Context_api/Context"
 import './Details.css'
 import Alert from './Alert'
 export default function Details() {
-  const [value,setValue]=useState()
+  // const[value,setValue] = useState('0')
+  const a = useContext(Context)
   const alert=(event)=>{
     event.preventDefault()
-    setValue(1)
+    // setValue(1)
+    const obj={
+       firstname: document.getElementById("firstname").value,
+       lastname: document.getElementById("lastname").value,
+       email: document.getElementById("email").value,
+       password: document.getElementById("password").value
+    }
+    a.Signup(obj)
   }
 return (
 <div style={{fontFamily:'Inter'}}> 
-<form action="http://localhost:8000/auth/createuser" method="post"> 
+<form> 
 <div className="row">
   <div className="col">
     <input type="text" className="form-control" name="firstname" id="firstname" placeholder="First name" aria-label="First name"/>
