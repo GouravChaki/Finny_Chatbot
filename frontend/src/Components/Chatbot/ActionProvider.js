@@ -20,7 +20,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
   }
   const feature_2 = () => {
     //recommend stock on future price
-    const botMessage = createChatBotMessage('Enter a NASDAQ Code as [ NASDAQ1: (code) ] ');
+    const botMessage = createChatBotMessage('Enter a NASDAQ Codes as [ NASDAQ1: (code1) (code2) ] and number of days: ');
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, botMessage],
@@ -30,7 +30,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
 
   const feature_3 = () => {
     //find future price of a stock
-    const botMessage = createChatBotMessage('Enter a NASDAQ Code as [ NASDAQ2: (code) ] ');
+    const botMessage = createChatBotMessage('Enter a NASDAQ Code as [ NASDAQ2: (code) ] and number of days');
     setState((prev) => ({
       ...prev,
       messages: [...prev.messages, botMessage],
@@ -74,6 +74,15 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
     }));
   }
 
+  const wrongInput = () => {
+    //this is for incorrect inputs
+    const botMessage = createChatBotMessage('Sorry I did not understand.');
+    setState((prev) => ({
+      ...prev,
+      messages: [...prev.messages, botMessage],
+    }));
+  }
+
   return (
     <div>
       {React.Children.map(children, (child) => {
@@ -87,6 +96,7 @@ const ActionProvider = ({ createChatBotMessage, setState, children }) => {
             recommend1,
             recommend2,
             showData,
+            wrongInput,
           },
         });
       })}
