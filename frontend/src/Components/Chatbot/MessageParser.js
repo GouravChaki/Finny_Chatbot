@@ -22,6 +22,7 @@ if (lowerCaseMessage.includes('nasdaq3')) {
   actions.showData();
 }
 if (lowerCaseMessage.includes('budget')) {
+  console.log(message)
   //recommend stock on user budget
      actions.recommend1();
  }

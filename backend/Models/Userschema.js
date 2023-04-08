@@ -1,23 +1,24 @@
 const mongoose = require('mongoose')
-const UserSchema = new Schema({
-    first_name: {
-        type: string,
+const {schema}=mongoose;
+const UserSchema = new mongoose.Schema({
+    firstname: {
+        type: String,
         required: true
     },
 
-    last_name: {
-        type: string,
+    lastname: {
+        type: String,
         required: true,
     },
 
     email: {
-        type: string,
+        type: String,
         required: true,
         unique: true
     },
 
     password: {
-        type: string,
+        type: String,
         required: true,
         unique: true
     },
@@ -27,8 +28,9 @@ const UserSchema = new Schema({
         default: Date.now
     },
 })
-
-mongoose.exports = mongoose.model('User', UserSchema)
+const user=mongoose.model('finny',UserSchema)
+user.createIndexes();
+mongoose.exports = user
 
 /* Collection schemas
 Feature 1 : 

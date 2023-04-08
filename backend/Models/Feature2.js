@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
-const Feature2 = new Schema({
-    user_id: { type: Schema.Types.ObjectId, ref: 'User' },
+const Feature2 = new mongoose.Schema({
+    user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
     nasdaq:{
             c_1: {type:String, required:true},
             c_2: {type:String, required:true}
