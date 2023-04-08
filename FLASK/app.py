@@ -2,12 +2,13 @@ from flask import Flask, request, Response
 import requests
 import yfinance as yf #importing yahoo finance api
 # from train import dance
-from return_model import ml_model
+from Functions.return_model import ml_model
 import pandas as pd
 from datetime import date
-from companies_list import companies
-from predict_price import predict_data
-
+from Functions.companies_list import companies
+from Functions.predict_price import predict_data
+from Functions.predict_price_2 import predict_data_2
+from yahoo_fin.stock_info import get_data
 app=Flask(__name__)
 
 @app.route('/yours_price',methods=['GET','POST'])
@@ -59,17 +60,57 @@ async def hello():
     return companies_df
     # return 'hello'
 
-@app.route('/realtime',methods=['GET','POST'])
-async def realtime_data():
-     if (request.method=='GET'):
+@app.route('/historical_data',methods=['GET','POST'])
+async def history():
+    if (request.method=='GET'):
         #extract price from json shared
-        price=request.get_json()
+        data=request.get_json()
+        name_company=data['nasdaq']
+        starting_date=data['date']
+        # dataset = yf.Ticker(name)
+        today = date.today()
+        company_dataset= get_data(name_company, start_date=starting_date, end_date=today, index_as_date = True, interval="1d")
+        # company_dataset['date']=company_dataset.index
+        # company_dataset.index = (company_dataset.index).dt.strftime('%Y-%m-%d')
+        print(company_dataset)
+        company_dataset=company_dataset.to_json(date_format='iso')
+        # for i in company_dataset:
+        #     i=i.dt.strftime('%Y-%m-%d')
+        return company_dataset
+     
+@app.route('/compare',methods=['GET','POST'])
+async def compare():
+    if (request.method=='GET'):
+        #extract price from json shared
+        data=request.get_json()
+        name_company_1=data['nasdaq']['c_1']
+        name_company_2=data['nasdaq']['c_2']
 
-        #send the price received to companies function
+        date_company=int(data['days_after'])
 
-        df=await companies(price['price'])# receive the intended dataframe
-        df=df.to_json()
-        return df
+        df1=await predict_data_2(name_company_1,date_company) 
+        df2=await predict_data_2(name_company_2,date_company)
+        df1=df1.to_json()
+        df2=df2.to_json()
+        json={
+            name_company_1:df1,
+            name_company_2:df2
+        }
+        return json
+
+@app.route('/individual_company',methods=['GET','POST'])
+async def individual_company():
+        if (request.method=='GET'):
+            data=request.get_json()
+            name_company_1=data['nasdaq']
+            date_company=int(data['days_after'])
+
+            company_1=await predict_data_2(name_company_1,date_company)
+            # p=company_1['Price']
+            # company_1['Price']=(p[0][0]+p[0][1]+p[0][2]+p[0][3])/4
+            company_1=company_1.to_json()
+            # company_1['Price'][1]=company_1['Price'][1][0]+company_1['Price'][1][1]+company_1['Price'][1][2]+company_1['Price'][1][3]
+            return company_1
 
 if __name__=="__main__":
     app.run(debug=True,port=5000)
