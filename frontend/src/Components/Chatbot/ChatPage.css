@@ -6,6 +6,7 @@
   min-height: 80vh;
   min-width: auto;
 }
-.react-chatbot-kit-chat-bot-message-container {
-  align-items: start; 
+.react-chatbot-kit-chat-bot-message {
+  margin-left: 0;
+  width: 50vh;
 }
