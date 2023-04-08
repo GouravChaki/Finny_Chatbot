@@ -4,7 +4,7 @@ const Feature3 = new mongoose.Schema({
     
     nasdaq: {type: String},
 
-    p_date: {type: String},
+    p_days_after:{type: String},
 
     p_price: {type: Number},
 
@@ -13,5 +13,5 @@ const Feature3 = new mongoose.Schema({
         default: Date.now,
     },
 });
-
-mongoose.exports = mongoose.model("F3", Feature3);
+user=mongoose.model("F3", Feature3);
+module.exports = user

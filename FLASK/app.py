@@ -13,11 +13,11 @@ app=Flask(__name__)
 
 @app.route('/yours_price',methods=['GET','POST'])
 async def hello():
-  if (request.method=='GET'):
-    
+  if (request.method=='POST'):
     price=request.get_json()#fetch price
+    print(price)
     price=float(price['price'])
-
+    print(price)
     companies_df=await companies(price)#get company list falling in this price
     companies_df['price_5days']=0
     companies_df['price_7days']=0
@@ -62,11 +62,11 @@ async def hello():
 
 @app.route('/historical_data',methods=['GET','POST'])
 async def history():
-    if (request.method=='GET'):
+    if (request.method=='POST'):
         #extract price from json shared
         data=request.get_json()
         name_company=data['nasdaq']
-        starting_date=data['date']
+        starting_date=data['time_duration']
         # dataset = yf.Ticker(name)
         today = date.today()
         company_dataset= get_data(name_company, start_date=starting_date, end_date=today, index_as_date = True, interval="1d")
@@ -80,7 +80,7 @@ async def history():
      
 @app.route('/compare',methods=['GET','POST'])
 async def compare():
-    if (request.method=='GET'):
+    if (request.method=='POST'):
         #extract price from json shared
         data=request.get_json()
         name_company_1=data['nasdaq']['c_1']
@@ -100,11 +100,12 @@ async def compare():
 
 @app.route('/individual_company',methods=['GET','POST'])
 async def individual_company():
-        if (request.method=='GET'):
+        if (request.method=='POST'):
             data=request.get_json()
+            print(data)
             name_company_1=data['nasdaq']
-            date_company=int(data['days_after'])
-
+            date_company=int(data['p_days_after'])
+            print(name_company_1,date_company)
             company_1=await predict_data_2(name_company_1,date_company,1)
             # p=company_1['Price']
             # company_1['Price']=(p[0][0]+p[0][1]+p[0][2]+p[0][3])/4

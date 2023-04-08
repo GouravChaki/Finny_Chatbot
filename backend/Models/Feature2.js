@@ -8,24 +8,26 @@ const Feature2 = new mongoose.Schema({
     days_after:{type:String,required:true},
     output:{
            c1: { 
-            nsdq:[{type:String}],
-            date:[{type:String}],
-            open:[{type:Number}],
-            high:[{type:Number}],
-            low:[{type:Number}],
-            close:[{type:Number}] },
+            nasdaq:{type:String},
+            date:{type:String},
+            open:{type:Number},
+            high:{type:Number},
+            low:{type:Number},
+            close:{type:Number}
+         },
            c2: { 
-                nsdq:[{type:String}],
-                date:[{type:String}],
-                open:[{type:Number}],
-                high:[{type:Number}],
-                low:[{type:Number}],
-                close:[{type:Number}] }
+            nasdaq:{type:String},
+            date:{type:String},
+            open:{type:Number},
+            high:{type:Number},
+            low:{type:Number},
+            close:{type:Number}
+             }
         },
     Date: {
         type: Date,
         default: Date.now,
     },
 });
-
-mongoose.exports = mongoose.model("F2", Feature2);
+user=mongoose.model("F2", Feature2);
+module.exports = user

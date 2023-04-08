@@ -1,17 +1,11 @@
-const mongoose = require('mongoose')
-const mongoUri = "mongodb+srv://GouravChaki:Gourav@cluster0.ifo2taa.mongodb.net/finny"
-const connectToMongo =async ()=>{
-    try{
-        mongoose.set('strictQuery', false)
-        mongoose.connect(mongoUri)
-        console.log('Database Connected')
-    }
-    catch(error) {
-        console.log(error)
-        process.exit()
-    }
+const mongoose=require('mongoose')
+const mongoURI="mongodb+srv://GouravChaki:Gourav@cluster0.ifo2taa.mongodb.net/finny"
+const connectmonngo= ()=>{
+        mongoose.connect(mongoURI,()=>{
+            console.log('Connected to mongodb')
+        })
 }
-module.exports = connectToMongo;
+module.exports=connectmonngo;
 
 // const mongoose = require('mongoose')
 

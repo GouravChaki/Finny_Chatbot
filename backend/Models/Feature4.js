@@ -22,6 +22,6 @@ const Feature4 = new mongoose.Schema({
     },
 })
 
-mongoose.exports = mongoose.model('F4', Feature4)
+module.exports = mongoose.model('F4', Feature4)
 
 

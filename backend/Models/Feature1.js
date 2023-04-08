@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose')
 const Feature1 = new mongoose.Schema({
     user_id: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
 
@@ -22,5 +22,5 @@ const Feature1 = new mongoose.Schema({
         default: Date.now,
     },
 });
-
-mongoose.exports = mongoose.model("F1", Feature1);
+let user=mongoose.model('F1', Feature1);
+module.exports = user 

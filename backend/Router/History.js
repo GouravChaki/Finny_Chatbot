@@ -13,7 +13,7 @@ const F4 = require('../Models/Feature4')
 const axios = require('axios')
 url1='http://127.0.0.1:5000/yours_price'
 url2='http://127.0.0.1:5000/compare'
-url3='http://127.0.0.1:5000/indvidual_company'            //these are flask urls
+url3='http://127.0.0.1:5000/individual_company'            //these are flask urls
 url4='http://127.0.0.1:5000/historical_data'
 
 router.get('/history/feature1',fetch,async (req,res)=>{
@@ -71,8 +71,9 @@ if(!err.isEmpty())
     return res.status(400).send({errors:err.array()})
     }
 try{
-    const desc = await axios.post(url1,req.body.price)
-    desc = JSON.parse(desc)
+    console.log(req.body)
+    const desc = await axios.post(url1,req.body)
+    console.log(desc.data)
     const index1 = []
     const symbol1 = []
     const name1 = []
@@ -80,17 +81,19 @@ try{
     const ls_5 = []
     const ls_7 = []
     const ls_10 = []
-    for (let key in desc.Index)
+    for (let key in desc.data.Index)
     {
-        index1.push(desc.Index[key])
-        symbol1.push(desc.Symbol[key])
-        name1.push(desc.Name[key])
-        ls_1.push(desc['Last Sale'][key])
-        ls_5.push(desc.price_5days[key])
-        ls_7.push(desc.price_7days[key])
-        ls_10.push(desc.price_10days[key])
+        console.log(key)
+        // console.log(desc.data.Symbol)
+        index1.push(desc.data.Index[key])
+        symbol1.push(desc.data.Symbol[key])
+        name1.push(desc.data.Name[key])
+        ls_1.push(desc.data['Last Sale'][key])
+        ls_5.push(desc.data.price_5days[key])
+        ls_7.push(desc.data.price_7days[key])
+        ls_10.push(desc.data.price_10days[key])
     }
-    desc1 = {
+    const desc1 = {
             Index: index1,
             Symbol: symbol1,
             Name: name1,
@@ -100,11 +103,13 @@ try{
             price_10days: ls_10,
            }
     const ob={
-        user_id: req.user.id,
+        user_id: req.id.user,
       price : req.body.price,
       c_names : desc1
     }
-F1.push(ob)
+    console.log(ob)
+await F1.create(ob)
+res.send('database_updated')
 }
 catch(error){
     console.error(error.message)
@@ -119,26 +124,45 @@ router.post('/add/feature2',fetch,[body('nasdaq','nasdaq codes should not be emp
         }
     try{
         const op = await axios.post(url2,req.body)
-        op = JSON.parse(op)
-        ob = {
-            date: op.date,
-            open: op.open.map((item)=>{a=parseFloat(item);return item;}),
-            high: op.high.map((item)=>{a=parseFloat(item);return item;}),
-            low: op.low.map((item)=>{a=parseFloat(item);return item;}),
-            close: op.close.map((item)=>{a=parseFloat(item);return item;}),
-            volume: op.volume.map((item)=>{a=parseFloat(item);return item;}),
-            dividends: op.dividends.map((item)=>{a=parseFloat(item);return item;})     
+        console.log(op.data)
+        index_1=req.body.nasdaq.c_1
+        index_2=req.body.nasdaq.c_2
+        console.log(index_1,index_2)
+        op1=JSON.parse(op.data[index_1])
+        op2=JSON.parse(op.data[index_2])
+        // console.log(typeof(op1),op1)
+        // console.log(op1.Price['1'][0][0])
+        c_1 = {
+            nasdaq: index_1,
+            date: op1.Date['1'],
+            open: parseFloat(op1.Price['1'][0][0]),
+            high: parseFloat(op1.Price['1'][0][1]),
+            low: parseFloat(op1.Price['1'][0][2]),
+            close: parseFloat(op1.Price['1'][0][3]),    
+        }
+        c_2 = {
+            nasdaq: index_2,
+            date: op2.Date['1'],
+            open: parseFloat(op2.Price['1'][0][0]),
+            high: parseFloat(op2.Price['1'][0][1]),
+            low: parseFloat(op2.Price['1'][0][2]),
+            close: parseFloat(op2.Price['1'][0][3]),    
         }
         const obj={
-            user_id: req.user.id,
+            user_id: req.id.user,
             nasdaq:req.body.nasdaq,
             days_after:req.body.days_after,
-            output: {op}
+            output: {
+                c1:c_1,
+                c2:c_2
+            }
         }
-    F2.push({obj})
+    console.log(obj)
+    await F2.create(obj)
+    res.send('feature_2')
     }
-    catch{
-        console.error(error.message)
+    catch(error){
+        console.log(error.message)
         res.status(500).send("Interal server error")
     }
     })
@@ -174,7 +198,7 @@ router.post('/add/feature2',fetch,[body('nasdaq','nasdaq codes should not be emp
 //     }
 //     })
 
-router.post('/add/feature3',fetch,[body('nasdaq','nasdaq should not be empty').notEmpty(),body('p_date','p_date should not be empty').notEmpty(),],async (req,res)=>{
+router.post('/add/feature3',fetch,[body('nasdaq','nasdaq should not be empty').notEmpty(),body('p_days_after','p_days_after should not be empty').notEmpty(),],async (req,res)=>{
     const err = validationResult(req)
     if(!err.isEmpty())
     {
@@ -182,18 +206,18 @@ router.post('/add/feature3',fetch,[body('nasdaq','nasdaq should not be empty').n
         }
     try{
         const prices = await axios.post(url3,req.body)
-        prices = JSON.parse(prices)
-        price = prices.Price['0']
+        price = prices.data.Price['1']
         const ob={
-            user_id: req.user.id,
+            user_id: req.id.user,
             nasdaq:req.body.nasdaq,
-            p_date:req.body.p_date,
+            p_days_after:req.body.p_date,
             p_price : price,
         }
-    F3.push(ob)
+    await F3.create(ob)
+    res.send("Feature_3")
     }
-    catch{
-        console.error(error.message)
+    catch(error){
+        console.log(error.message)
         res.status(500).send("Interal server error")
     }
     })
@@ -206,7 +230,7 @@ router.post('/add/feature3',fetch,[body('nasdaq','nasdaq should not be empty').n
             }
         try{
             const op = await axios.post(url4,{nasdaq:req.body.nasdaq,time_duration:req.body.time_duration})
-            op = JSON.parse(op)
+            console.log(op.data)
             const date1 = []
             const open1 = []
             const high1 = []
@@ -214,35 +238,38 @@ router.post('/add/feature3',fetch,[body('nasdaq','nasdaq should not be empty').n
             const close1 = []
             const adjclose1 = []
             const volume1 = []
-            for (let key in op.open)
+            for (let key in op.data.open)
             {
-                date1.push(key.slice("T")[0])
-                open1.push(op.open[key])
-                high1.push(op.high[key])
-                low1.push(op.low[key])
-                close1.push(op.close[key])
-                adjclose1.push(op.adjclose[key])
-                volume1.push(op.volume[key])
+                key_new=key[0]+key[1]+key[2]+key[3]+key[4]+key[5]+key[6]+key[7]+key[8]+key[9]
+                console.log(key_new)
+                date1.push(key_new)
+                open1.push(op.data.open[key])
+                high1.push(op.data.high[key])
+                low1.push(op.data.low[key])
+                close1.push(op.data.close[key])
+                adjclose1.push(op.data.adjclose[key])
+                volume1.push(op.data.volume[key])
             }
             ob = {
-                date: op.date1.slice(0,10),
-                open: op.open1.map((item)=>{a=parseFloat(item);return item;}).slice(0,10),
-                high: op.high1.map((item)=>{a=parseFloat(item);return item;}).slice(0,10),
-                low: op.low1.map((item)=>{a=parseFloat(item);return item;}).slice(0,10),
-                close: op.close1.map((item)=>{a=parseFloat(item);return item;}).slice(0,10),
-                adjclose: op.adjclose1.map((item)=>{a=parseFloat(item);return item;}).slice(0,10),
-                volume: op.volume1.map((item)=>{a=parseFloat(item);return item;}).slice(0,10)     
+                date: date1.slice(0,10),
+                open: open1.map((item)=>{a=parseFloat(item);return item;}).slice(0,10),
+                high: high1.map((item)=>{a=parseFloat(item);return item;}).slice(0,10),
+                low: low1.map((item)=>{a=parseFloat(item);return item;}).slice(0,10),
+                close: close1.map((item)=>{a=parseFloat(item);return item;}).slice(0,10),
+                adjclose: adjclose1.map((item)=>{a=parseFloat(item);return item;}).slice(0,10),
+                volume: volume1.map((item)=>{a=parseFloat(item);return item;}).slice(0,10)     
             }
             const obj={
-                user_id: req.user.id,
+                user_id: req.id.user,
                 nasdaq:req.body.nasdaq,
                 time_duration:req.body.time_duration,
                 output: ob
             }
-        F4.push(obj)
+        await F4.create(obj)
+        res.send('feature_4 connected')
         }
-        catch{
-            console.error(error.message)
+        catch(error){
+            console.log(error.message)
             res.status(500).send("Interal server error")
         }
         })
