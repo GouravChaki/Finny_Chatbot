@@ -13,7 +13,7 @@ export default function Footer() {
                             <div className='col'><input type="email" className="form-control" id="Email" placeholder='Email' /></div>
                             </div>
                         </form>
-                    <p className='mt-3'>Reach us at exampleEmail@gmail.com</p>
+                    
                 </div>
             </div>
         </div>

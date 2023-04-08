@@ -10,17 +10,11 @@ export default function mid() {
        <h1 style={{marginTop: '-69px',fontSize: '380%' }}>
        Finny
        </h1>
-       <p style={{paddingTop: '20px'}}>Lorem ipsum dolor sit amet, consectetur 
-          adipiscing elit, sed do eiusmod tempor 
-          incididunt ut labore et dolore magna 
-          aliqua. Ut enim ad minim veniam, quis 
-          nostrud exercitation ullamco laboris nisi 
-          ut aliquip ex ea commodo consequat.Quis aute 
-          iure reprehenderit in voluptate velit esse 
-          cillum dolore eu fugiat nulla pariatur. 
-          Excepteur sint obcaecat cupiditat non proident,
-          sunt in culpa qui officia deserunt mollit anim 
-          id est laborum.
+       <p style={{paddingTop: '20px'}}>
+       Welcome! My name is Finny and I’m here to help you with your stock-market related issues. 
+       Use me for recommendations on stock based on how much you want to invest. 
+       I can also predict future values of stock and compare two companies based on how they’ll do in the next couple of days. 
+       Have fun exploring!
       </p>
 
      <button className="btn btn-primary mt-5" type="submit"><Link to="/login" style={{ color: 'inherit', textDecoration: 'inherit'}}>Login</Link></button>
