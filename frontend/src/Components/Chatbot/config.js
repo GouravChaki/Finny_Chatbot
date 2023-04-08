@@ -20,7 +20,7 @@ const config = {
     widgets: [
         {
             widgetName: "botOptions",
-            widgetFunc: (props) => <BotOptions {...props} />,
+            widgetFunc: (props) => <BotOptions {...props}/>,
         },
     ],
 };

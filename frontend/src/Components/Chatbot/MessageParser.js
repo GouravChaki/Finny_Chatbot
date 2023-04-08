@@ -1,12 +1,14 @@
-// in MessageParser.jsx
-
 import React from 'react';
 
 const MessageParser = ({ children, actions }) => {
+  var re = new RegExp("/([1-9][0-9]*)/");
   const parse = (message) => {
     if (message.includes('hello')) {
         actions.handleHello();
     }
+    if (message.includes(re)) {
+      actions.todayStockPriceRecommend();
+  }
   };
 
   return (
