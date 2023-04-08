@@ -14,6 +14,7 @@
     "axios": "^1.3.5",
     "bcryptjs": "^2.4.3",
     "convert-csv-to-json": "^2.0.0",
+    "cors": "^2.8.5",
     "express": "^4.18.2",
     "express-validator": "^6.15.0",
     "jsonwebtoken": "^9.0.0",

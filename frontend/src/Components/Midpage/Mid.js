@@ -11,7 +11,7 @@ export default function mid() {
        Finny
        </h1>
        <p style={{paddingTop: '20px'}}>
-       Welcome! My name is Finny and I’m here to help you with your stock-market related issues. 
+       Welcome! My name is Finny and I'm here to help you with your stock-market related issues. 
        Use me for recommendations on stock based on how much you want to invest. 
        I can also predict future values of stock and compare two companies based on how they’ll do in the next couple of days. 
        Have fun exploring!
@@ -21,8 +21,8 @@ export default function mid() {
      <button className="btn btn-primary mx-4 mt-5" type="submit"><Link to="/signup" style={{ color: 'inherit', textDecoration: 'inherit'}}>Signup</Link></button>   
     </div>
     <div>
-      <div><img src={pic} className="rounded mx-4" style={{width: '75%',marginTop: '7vh'}} /></div>
-      <button className="btn btn-primary w-70 mt-5" style={{ marginLeft:'30vh'}}><Link to="/finny" style={{ color: 'inherit', textDecoration: 'inherit'}}>Try Finny!</Link></button>
+      <div><img src={pic} className="rounded mx-4" style={{width: '75%',marginTop: '5vh'}} /></div>
+      <button className="btn btn-primary w-70 mt-3" style={{ marginLeft:'30vh'}}><Link to="/finny" style={{ color: 'inherit', textDecoration: 'inherit'}}>Try Finny!</Link></button>
     </div>
     </div>
  </>

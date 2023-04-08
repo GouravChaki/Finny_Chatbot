@@ -16,6 +16,8 @@ import {
 } from "react-router-dom";
 import ChatPage from './Components/Chatbot/ChatPage'
 import ContextData from './Components/Context_api/ContextData';
+import Chat from './Components/Chatbot2/Chat';
+import Search from './Components/Search_History/Search';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -34,10 +36,15 @@ function App() {
         <Routes>
           <Route path="/signup" element={<Signup />}/>
         </Routes>
-        <Routes>
+        {/* <Routes>
         <Route path="/finny" element={<ChatPage />}/>
+        </Routes> */}
+        <Routes>
+        <Route path="/finny" element={<Chat />}/>
         </Routes>
-        <Footer/>
+        <Routes>
+        <Route path="/search_history" element={<Search/>}/>
+        </Routes>
       </Router>
     </ContextData>
   );
