@@ -94,7 +94,7 @@ router.post('/add/feature2',fetch,[body('nasdaq','nasdaq codes should not be emp
         const op = await axios.post(url2,req.body)
         op = JSON.parse(op)
         ob = {
-            date: op.date.slice(0,10),
+            date: op.date,
             open: op.open.map((item)=>{a=parseFloat(item);return item;}),
             high: op.high.map((item)=>{a=parseFloat(item);return item;}),
             low: op.low.map((item)=>{a=parseFloat(item);return item;}),
