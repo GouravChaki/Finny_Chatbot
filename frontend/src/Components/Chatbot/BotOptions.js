@@ -9,7 +9,7 @@ export default function BotOptions({ triggerNextStep ,children, actions }) {
   // }
   const options = [
     { text: "Hey! Do you want me to recommend stocks based on your budget?",handler:()=>{actions.feature_1()},id: 1 },
-    { text: "I can also compare two company's stocks!",handler:()=>{actions.feature_2_1()}, id: 2 },
+    { text: "I can also compare two company's stocks!",handler:()=>{actions.feature_2()}, id: 2 },
     { text: "Give me a company name and I'll predict their stock price for you!",handler:()=>{actions.feature_3()}, id: 3 },
     { text: "You can also use me to see a company's historical data...", handler:()=>{actions.feature_4()}, id: 4 },
   ];

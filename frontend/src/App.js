@@ -4,6 +4,7 @@ import Login from './Components/Login/Login';
 import Signup from './Components/Signup/Signup';
 import Navbar from './Components/Navbar/Navbar';
 import HomePage from './Components/HomePage/HomePage';
+import Footer from './Components/Footer/Footer'
 import { useEffect, useState } from "react";
 import Maybeshownavbar from './Components/Maybeshownavbar/Maybeshownavbar';
 // import lottie from 'lottie-web'; 
@@ -36,6 +37,7 @@ function App() {
         <Routes>
         <Route path="/finny" element={<ChatPage />}/>
         </Routes>
+        <Footer/>
       </Router>
     </ContextData>
   );

@@ -10,8 +10,6 @@ export default function HomePage(){
         <Navbar/>
         <Carousel/>
         <Midpage />
-        <Footer/>
-        
     </div>
        
     )

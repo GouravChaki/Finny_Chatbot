@@ -8,7 +8,7 @@ export default function mid() {
       <div className='d-flex'>
       <div style={{marginTop: '9%', marginLeft: '7%', fontSize: '110%'}}>
        <h1 style={{marginTop: '-69px',fontSize: '380%' }}>
-       ChatBOT
+       Finny
        </h1>
        <p style={{paddingTop: '20px'}}>Lorem ipsum dolor sit amet, consectetur 
           adipiscing elit, sed do eiusmod tempor 
@@ -23,14 +23,12 @@ export default function mid() {
           id est laborum.
       </p>
 
-     <button class="btn btn-primary mt-4" type="submit"><Link to="/login" style={{ color: 'inherit', textDecoration: 'inherit'}}>Login</Link></button>
-     <button class="btn btn-primary mx-4 mt-4" type="submit"><Link to="/signup" style={{ color: 'inherit', textDecoration: 'inherit'}}>Signup</Link></button>   
-     <button class="btn btn-primary w-70 mt-4" style={{marginLeft:'100vh'}} ><Link to="/finny" style={{ color: 'inherit', textDecoration: 'inherit'}}>Try Finny!</Link></button>
+     <button className="btn btn-primary mt-5" type="submit"><Link to="/login" style={{ color: 'inherit', textDecoration: 'inherit'}}>Login</Link></button>
+     <button className="btn btn-primary mx-4 mt-5" type="submit"><Link to="/signup" style={{ color: 'inherit', textDecoration: 'inherit'}}>Signup</Link></button>   
     </div>
     <div>
-        <div>
-          <img src={pic} class="rounded mx-4" style={{width: '75%',marginTop: '4vh'}} />
-        </div> 
+      <div><img src={pic} className="rounded mx-4" style={{width: '75%',marginTop: '7vh'}} /></div>
+      <button className="btn btn-primary w-70 mt-5" style={{ marginLeft:'30vh'}}><Link to="/finny" style={{ color: 'inherit', textDecoration: 'inherit'}}>Try Finny!</Link></button>
     </div>
     </div>
  </>

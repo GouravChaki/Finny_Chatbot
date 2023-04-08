@@ -34,6 +34,8 @@ const MessageParser = ({ children, actions }) => {
         code = code.toUpperCase(); //NASDAQ Codes Extracted from message
         var num = lowerCaseMessage.match(/\d+\.?\d*/)[0];
         num = parseInt(num); //no. of days
+        console.log(num)
+        console.log(code)
         actions.recommend2();
       }
       catch (e) {
