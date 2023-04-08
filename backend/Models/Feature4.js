@@ -1,20 +1,20 @@
 const mongoose = require('mongoose')
 const Feature4 = new Schema({
-    user_id: [{ type: Schema.Types.ObjectId, ref: 'User' }],
+    user_id: { type: Schema.Types.ObjectId, ref: 'User' },
     
     nasdaq: {type:String},
 
     time_duration: {type: String},
 
-    output: [{
+    output: {
         date:[{type:String}],
         open:[{type:Number}],
         high:[{type:Number}],
         low:[{type:Number}],
         close:[{type:Number}],
-        volume:[{type:Number}],
-        dividends:[{type:Number}]
-    }],
+        adjclose: [{type:Number}],
+        volume: [{type:Number}]
+    },
 
     Date: {
         type: Date,
