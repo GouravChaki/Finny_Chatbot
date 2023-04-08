@@ -110,8 +110,6 @@ catch{
     res.status(500).send("Interal server error")
 }
 })
-
-<<<<<<< HEAD
 router.post('/add/feature2',fetch,[body('nasdaq','nasdaq codes should not be empty').notEmpty(),body('days_after','days_after should not be empty').notEmpty()],async (req,res)=>{
     const err = validationResult(req)
     if(!err.isEmpty())
@@ -143,7 +141,6 @@ router.post('/add/feature2',fetch,[body('nasdaq','nasdaq codes should not be emp
         res.status(500).send("Interal server error")
     }
     })
-=======
 // router.post('/add/feature2',fetch,[body('nasdaq','nasdaq codes should not be empty').notEmpty(),body('days_after','days_after should not be empty').notEmpty()],async (req,res)=>{
 //     const err = validationResult(req)
 //     if(!err.isEmpty())
@@ -175,7 +172,6 @@ router.post('/add/feature2',fetch,[body('nasdaq','nasdaq codes should not be emp
 //         res.status(500).send("Interal server error")
 //     }
 //     })
->>>>>>> e58fe0c26d67108d9487dbedb3e9398d141e7538
 
 router.post('/add/feature3',fetch,[body('nasdaq','nasdaq should not be empty').notEmpty(),body('p_date','p_date should not be empty').notEmpty(),],async (req,res)=>{
     const err = validationResult(req)
