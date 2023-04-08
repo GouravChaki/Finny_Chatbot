@@ -7,7 +7,7 @@ from datetime import date
 from Functions.return_model import ml_model
 import yfinance as yf #importing yahoo finance api
 
-async def predict_data_2(name,date_received):
+async def predict_data_2(name,date_received,a=0):
     # print(name['data'])
     #getting dataset according to company nasdaq code
     print(name)
@@ -27,8 +27,7 @@ async def predict_data_2(name,date_received):
     
     # print(df_read)
         today = date.today()
-        date_current=int(today.strftime("%Y%m%d")) #current date
-        
+        date_current=int(today.strftime("%Y%m%d")) #current date        
         data={
             'Name':['0'],
             'Date':['0'],
@@ -38,11 +37,19 @@ async def predict_data_2(name,date_received):
         
         model=await ml_model(df_read)
         predicted_price=model.predict([[date_current+date_received]])    
-        data={
+        if(a==1):
+            data={
+            'Name':name,
+            'Date':date_current+date_received,
+            'Price':(predicted_price[0][1]+predicted_price[0][2]+predicted_price[0][3]+predicted_price[0][1])/4
+            }
+        else:
+            data={
             'Name':name,
             'Date':date_current+date_received,
             'Price':predicted_price
-        }
+            }
+
         company_dataframe.loc[len(company_dataframe)] = data
         print(company_dataframe)
     

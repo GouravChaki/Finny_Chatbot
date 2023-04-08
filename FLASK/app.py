@@ -105,7 +105,7 @@ async def individual_company():
             name_company_1=data['nasdaq']
             date_company=int(data['days_after'])
 
-            company_1=await predict_data_2(name_company_1,date_company)
+            company_1=await predict_data_2(name_company_1,date_company,1)
             # p=company_1['Price']
             # company_1['Price']=(p[0][0]+p[0][1]+p[0][2]+p[0][3])/4
             company_1=company_1.to_json()
