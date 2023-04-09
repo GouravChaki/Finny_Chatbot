@@ -97,23 +97,74 @@ export default function Chat() {
       },
       days_after: document.getElementById("days").value,
     };
-    a.change2(obj);
+    const res2 = a.change2(obj);
+    let s = res2.output.c1
+    let t = res2.output.c2
+    var message2_1
+    var message2_2
+    message2_1 = 'For ' + s.nasdaq + ":\nOpen : " + s.open + "\nHigh : " + s.high  + "\nLow : " + s.low + "\nClose : " + s.close
+    message2_2 = 'For ' + t.nasdaq + ":\nOpen : " + t.open + "\nHigh : " + t.high  + "\nLow : " + t.low + "\nClose : " + t.close
+    var message_n = message2_1 + "\n\n" + message2_2
+    setState(message_n)
   };
-  const change3 = () => {
+  const change3 = async () => {
     let obj = {
       nasdaq: document.getElementById("nasdaq31").value,
       p_days_after: document.getElementById("3days").value,
     };
     console.log(obj);
-    a.change3(obj);
+    const res = await a.change3(obj);
+    var message3
+    message3 = 'Price : ' + res.p_price
+    setState(message3)
   };
-  const change4 = () => {
+  const change4 = async () => {
     let obj = {
       nasdaq: document.getElementById("nasdaq_4").value,
       time_duration: document.getElementById("date").value,
     };
+    var message4 = ' '
     console.log(obj);
-    a.change4(obj);
+    const c4 = await a.change4(obj);
+    message4='Date:'+' '
+    c4.output.date.map((items)=>{
+    message4=message4+ ' '+items
+    console.log(message4)
+    })
+    console.log(message4)
+    message4+='\nOpen:'+' '
+    c4.output.open.map((items)=>{
+      console.log(message4)
+      message4=message4+ ' '+items
+      console.log(message4)
+      })
+      message4+='\nHigh:'+' '
+      c4.output.high.map((items)=>{
+        message4=message4+ ' '+items
+        console.log(message4)
+        })
+        message4+='\nLow:'+' '
+        c4.output.low.map((items)=>{
+          message4=message4+ ' '+items
+          console.log(message4)
+          })
+          message4+='\nClose:'+' '
+          c4.output.close.map((items)=>{
+            message4=message4+ ' '+items
+            console.log(message4)
+            })
+            message4+='\nAdjusted Close:'+' '
+            c4.output.adjclose.map((items)=>{
+              message4=message4+ ' '+items
+              console.log(message4)
+              })
+              message4+='\nVolume:'+' '
+              c4.output.volume.map((items)=>{
+                message4=message4 + ' '+items
+                console.log(message4)
+                })
+                setState(message4)
+
   };
 
   return (
