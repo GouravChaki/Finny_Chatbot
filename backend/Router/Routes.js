@@ -100,6 +100,7 @@ router.post('/auth/login', [
 
 router.post('/auth/getuser',fetch, async (req,res)=>{
     try{
+        console.log('req')
         const user=await User.findById(req.id)
         res.json(user)
     }

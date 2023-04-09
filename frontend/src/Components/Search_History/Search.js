@@ -3,15 +3,19 @@ import {useContext} from 'react'
 import Navbar from '../Navbar/Navbar'
 import Footer from '../Footer/Footer'
 import Context from "../Context_api/Context"
-
+import { useState, useEffect } from 'react';
 export default function Search() {
+  
     const a = useContext(Context)
+  //   useEffect(() => {
+  //     a.setNavbar(true)
+  //  },[])
   return (
     <>
     {/* <Navbar/> */}
-    <div>
+    <div style={{marginTop:'20vh'}}>
         {
-            a.token && <div>{a.token}</div>
+            a.mess && <div>{a.mess}</div>
         }
     </div>
     {/* <Footer/> */}
