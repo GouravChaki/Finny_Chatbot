@@ -166,17 +166,20 @@ export default function Chat() {
           {button1 && button2 != true && button3 != true && button4 != true && (
             <div className="container w-50 d-flex">
               <div className="w-100 mt-3" style={{ marginRight: "3%" }}>
-                <p className="output-text" style={{ whiteSpace: 'pre-wrap' }}>
-                  {/* <Typewriter
+                <p className="output-text" 
+                style={{ whiteSpace: 'pre-wrap' }}
+                >
+                  {<Typewriter
                     onInit={(typewriter) => {
                       typewriter
 
-                        .typeString(`${message}`)
-
+                        .typeString("Finny is working.......")
                         .pauseFor(1000)
-                        .start();
+                        .deleteAll()
+                        .start()
+                        .typeString("Wohooo here's my prediction !!!")
                     }}
-                  /> */}
+                  />}
                   {state}
                 </p>
               </div>
@@ -216,10 +219,11 @@ export default function Chat() {
                     onInit={(typewriter) => {
                       typewriter
 
-                        .typeString("Output")
-
-                        .pauseFor(1000)
-                        .start();
+                      .typeString("Finny is working.......")
+                      .pauseFor(1000)
+                      .deleteAll()
+                      .start()
+                      .typeString("Wohooo here's my prediction !!!")
                     }}
                   />
                 </p>
@@ -277,10 +281,11 @@ export default function Chat() {
                     onInit={(typewriter) => {
                       typewriter
 
-                        .typeString("Output")
-
-                        .pauseFor(1000)
-                        .start();
+                      .typeString("Finny is working.......")
+                      .pauseFor(1000)
+                      .deleteAll()
+                      .start()
+                      .typeString("Wohooo here's my prediction !!!")
                     }}
                   />
                 </p>
@@ -332,10 +337,11 @@ export default function Chat() {
                     onInit={(typewriter) => {
                       typewriter
 
-                        .typeString("Output")
-
-                        .pauseFor(1000)
-                        .start();
+                      .typeString("Finny is working.......")
+                      .pauseFor(1000)
+                      .deleteAll()
+                      .start()
+                      .typeString("Wohooo here's my prediction !!!")
                     }}
                   />
                 </p>
