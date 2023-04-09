@@ -1,3 +1,3 @@
-packages installed for frontend:
- react-chatbot-kit
+packages installed for frontend: <br>
+
 npm install --save react-lottie
