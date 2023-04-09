@@ -1,6 +1,7 @@
 import React from "react";
 import "./Chat.css";
 import { Link } from "react-router-dom";
+import Typewriter from "typewriter-effect";
 import { useState, useContext } from "react";
 import Context from "../Context_api/Context";
 import picture from "./wallpaperbetter.jpg";
@@ -80,7 +81,7 @@ export default function Chat() {
         width: "210vh",
       }}
     >
-      <h1 className="mx-5" style={{ color: "#FFFFF7"}}>Finny Here</h1>
+      <h1 className="mx-5" style={{ color: "#FFFFF7" }}>Finny Here</h1>
       <div className="d-flex flex-column align-items-center">
         <button
           className="btn btn-primary w-50 my-2"
@@ -111,7 +112,18 @@ export default function Chat() {
         {button1 && button2 != true && button3 != true && button4 != true && (
           <div className="container w-50 d-flex">
             <div className="w-100 mt-3" style={{ marginRight: "3%" }}>
-              <p className="output-text">Contrary to popular belief</p>
+              <p className="output-text"><Typewriter
+
+                onInit={(typewriter) => {
+
+                  typewriter
+
+                    .typeString("Output")
+
+                    .pauseFor(1000)
+                    .start();
+                }}
+              /></p>
             </div>
             <div className="d-flex flex-column flex-md-row justify-content-end w-70 mt-2">
               <div>
@@ -144,7 +156,18 @@ export default function Chat() {
         {button2 && button1 != true && button3 != true && button4 != true && (
           <div className="container w-50 d-flex">
             <div className="mt-3" style={{ marginRight: "3%", width: "70%" }}>
-              <p className="output-text">Contrary to popular belief</p>
+              <p className="output-text"><Typewriter
+
+                onInit={(typewriter) => {
+
+                  typewriter
+
+                    .typeString("Output")
+
+                    .pauseFor(1000)
+                    .start();
+                }}
+              /></p>
             </div>
             <div className="d-flex flex-column flex-md-row justify-content-end w-70 mt-2">
               <div>
@@ -192,7 +215,18 @@ export default function Chat() {
           button3 && button1 != true && button2 != true && button4 != true && (
             <div className="container w-50 d-flex">
               <div className="mt-3" style={{ marginRight: "3%", width: "70%" }}>
-                <p className="output-text">Contrary to popular belief</p>
+                <p className="output-text"><Typewriter
+
+                  onInit={(typewriter) => {
+
+                    typewriter
+
+                      .typeString("Output")
+
+                      .pauseFor(1000)
+                      .start();
+                  }}
+                /></p>
               </div>
               <div className="d-flex flex-column flex-md-row justify-content-end w-70 mt-2">
                 <div>
@@ -233,13 +267,23 @@ export default function Chat() {
             </div>
           )
 
-          //put the output here
         }
 
         {button4 && button1 != true && button2 != true && button3 != true && (
           <div className="container w-50 d-flex">
             <div className="mt-3" style={{ marginRight: "3%", width: "70%" }}>
-              <p className="output-text">Contrary to popular belief</p>
+              <p className="output-text"><Typewriter
+
+                onInit={(typewriter) => {
+
+                  typewriter
+
+                    .typeString("Output")
+
+                    .pauseFor(1000)
+                    .start();
+                }}
+              /></p>
             </div>
             <div className="d-flex flex-column flex-md-row justify-content-end w-70 mt-2">
               <div>
