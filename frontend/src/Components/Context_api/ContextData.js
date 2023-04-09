@@ -21,7 +21,7 @@ export default function ContextData(props) {
   const Signup = async (req) =>{
     try{
      const res = await axios.post("http://localhost:8000/auth/createuser",req)
-     setToken(res.data)
+     await setToken(res.data)
      setAlert({
       msg: "You have successfully signed in",
       color: "success"
@@ -119,8 +119,76 @@ console.log(error)
 }
   }
 
+const change1=async (req)=>{
+    try{
+      const url = "http://localhost:8000/add/feature1";
+      console.log(token)
+      const res = await fetch(url, {method: 'POST', headers: {
+      'Content-Type': 'application/json',
+      'Authorization': token
+      },
+      body: JSON.stringify(req)})
+      const response=await res.json()
+      console.log(response)
+      }
+      catch(error){
+      console.log(error)
+      }
+  }
+  const change2=async (req)=>{
+    try{
+      console.log(req)
+      const url = "http://localhost:8000/add/feature2";
+      console.log(token)
+      const res = await fetch(url, {method: 'POST', headers: {
+      'Content-Type': 'application/json',
+      'Authorization': token
+      },
+      body: JSON.stringify(req)})
+
+      
+      const response=await res.json()
+      console.log(response)
+      }
+      catch(error){
+      console.log(error)
+      }
+  }
+  const change3=async (req)=>{
+    try{
+      const url = "http://localhost:8000/add/feature3";
+      console.log(token)
+      const res = await fetch(url, {method: 'POST', headers: {
+      'Content-Type': 'application/json',
+      'Authorization': token
+      },
+      body: JSON.stringify(req)})
+      const response=await res.json()
+      console.log(response)
+      }
+      catch(error){
+      console.log(error)
+      }
+  }
+  const change4=async (req)=>{
+    try{
+      const url = "http://localhost:8000/add/feature4";
+      console.log(token)
+      const res = await fetch(url, {method: 'POST', headers: {
+      'Content-Type': 'application/json',
+      'Authorization': token
+      },
+      body: JSON.stringify(req)})
+      const response=await res.json()
+      console.log(response)
+      }
+      catch(error){
+      console.log(error)
+      }
+  }
+
   return (
-    <Context.Provider value={{alert,setAlert,navbar,setNavbar,Login,v_sign,setSign,f1,setF1,f2,setF2,f3,setF3,f4,setF4,v_log,setLog,Signup,token}}>
+    <Context.Provider value={{alert,change1,change2,change3,change4,setAlert,navbar,setNavbar,Login,v_sign,setSign,f1,setF1,f2,setF2,f3,setF3,f4,setF4,v_log,setLog,Signup,token}}>
         {props.children}
     </Context.Provider>
   )

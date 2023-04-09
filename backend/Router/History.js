@@ -74,7 +74,8 @@ router.get('/history/feature4',fetch,async (req,res)=>{
 })
 
 router.post('/add/feature1',fetch,[body('price','Price should not be empty').notEmpty()],async (req,res)=>{
-const err = validationResult(req)
+    console.log(req.body)
+    const err = validationResult(req)
 if(!err.isEmpty())
 {
     return res.status(400).send({errors:err.array()})
@@ -118,7 +119,7 @@ try{
     }
     console.log(ob)
 await F1.create(ob)
-res.send('database_updated')
+res.json(ob)
 }
 catch(error){
     console.error(error.message)
@@ -126,6 +127,7 @@ catch(error){
 }
 })
 router.post('/add/feature2',fetch,[body('nasdaq','nasdaq codes should not be empty').notEmpty(),body('days_after','days_after should not be empty').notEmpty()],async (req,res)=>{
+    console.log(req.body)
     const err = validationResult(req)
     if(!err.isEmpty())
     {
@@ -168,46 +170,16 @@ router.post('/add/feature2',fetch,[body('nasdaq','nasdaq codes should not be emp
         }
     console.log(obj)
     await F2.create(obj)
-    res.send('feature_2')
-    }
+    res.json(obj)
+}
     catch(error){
         console.log(error.message)
         res.status(500).send("Interal server error")
     }
     })
-// router.post('/add/feature2',fetch,[body('nasdaq','nasdaq codes should not be empty').notEmpty(),body('days_after','days_after should not be empty').notEmpty()],async (req,res)=>{
-//     const err = validationResult(req)
-//     if(!err.isEmpty())
-//     {
-//         return res.status(400).send({errors:err.array()})
-//         }
-//     try{
-//         const op = await axios.post(url2,req.body)
-//         op = JSON.parse(op)
-//         ob = {
-//             date: op.date,
-//             open: op.open.map((item)=>{a=parseFloat(item);return item;}),
-//             high: op.high.map((item)=>{a=parseFloat(item);return item;}),
-//             low: op.low.map((item)=>{a=parseFloat(item);return item;}),
-//             close: op.close.map((item)=>{a=parseFloat(item);return item;}),
-//             volume: op.volume.map((item)=>{a=parseFloat(item);return item;}),
-//             dividends: op.dividends.map((item)=>{a=parseFloat(item);return item;})     
-//         }
-//         const obj={
-//             user_id: req.user.id,
-//             nasdaq:req.body.nasdaq,
-//             days_after:req.body.days_after,
-//             output: op
-//         }
-//     F2.push(obj)
-//     }
-//     catch{
-//         console.error(error.message)
-//         res.status(500).send("Interal server error")
-//     }
-//     })
 
 router.post('/add/feature3',fetch,[body('nasdaq','nasdaq should not be empty').notEmpty(),body('p_days_after','p_days_after should not be empty').notEmpty(),],async (req,res)=>{
+    console.log(req)
     const err = validationResult(req)
     if(!err.isEmpty())
     {
@@ -223,7 +195,7 @@ router.post('/add/feature3',fetch,[body('nasdaq','nasdaq should not be empty').n
             p_price : price,
         }
     await F3.create(ob)
-    res.send("Feature_3")
+    res.send(ob)
     }
     catch(error){
         console.log(error.message)
@@ -275,7 +247,7 @@ router.post('/add/feature3',fetch,[body('nasdaq','nasdaq should not be empty').n
                 output: ob
             }
         await F4.create(obj)
-        res.send('feature_4 connected')
+        res.send(obj)
         }
         catch(error){
             console.log(error.message)

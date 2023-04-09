@@ -24,7 +24,7 @@ function App() {
   return (
     <ContextData>
       <Router>
-          <Navbar />
+          {/* <Navbar /> */}
         <Routes>
           <Route path="/" element={<HomePage />}/>
         </Routes>

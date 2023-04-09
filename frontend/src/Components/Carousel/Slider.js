@@ -1,6 +1,6 @@
 import React from 'react'
 
-import pic from './Homepage_robothandshakehumanbackgroundfuturisticdigitalage1.png'
+import pic from './hawhi1yt.png'
 import picc from './Finance 2.png'
 import piccc from './Cute chatbot 2.png'
 import Help from "./Help.json"
