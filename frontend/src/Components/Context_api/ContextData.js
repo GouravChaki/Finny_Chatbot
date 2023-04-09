@@ -155,7 +155,7 @@ const change1=async (req)=>{
 
       
       const response=await res.json()
-      console.log(response)
+      return response
       }
       catch(error){
       console.log(error)
@@ -171,7 +171,7 @@ const change1=async (req)=>{
       },
       body: JSON.stringify(req)})
       const response=await res.json()
-      console.log(response)
+      return response
       }
       catch(error){
       console.log(error)
@@ -187,7 +187,7 @@ const change1=async (req)=>{
       },
       body: JSON.stringify(req)})
       const response=await res.json()
-      console.log(response)
+      return response
       }
       catch(error){
       console.log(error)

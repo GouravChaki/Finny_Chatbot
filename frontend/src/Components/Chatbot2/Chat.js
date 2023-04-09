@@ -14,6 +14,7 @@ export default function Chat() {
     setShowComponent2(false);
     setShowComponent3(false);
     setShowComponent4(false);
+    setState()
   };
 
   const [button2, setShowComponent2] = useState(false);
@@ -22,6 +23,7 @@ export default function Chat() {
     setShowComponent2(true);
     setShowComponent3(false);
     setShowComponent4(false);
+    setState()
   };
 
   const [button3, setShowComponent3] = useState(false);
@@ -30,6 +32,7 @@ export default function Chat() {
     setShowComponent2(false);
     setShowComponent3(true);
     setShowComponent4(false);
+    setState()
   };
 
   const [button4, setShowComponent4] = useState(false);
@@ -38,6 +41,7 @@ export default function Chat() {
     setShowComponent2(false);
     setShowComponent3(false);
     setShowComponent4(true);
+    setState()
   };
 
   const change1 = async () => {
@@ -89,7 +93,7 @@ export default function Chat() {
                 console.log(message)
         
   };
-  const change2 = () => {
+  const change2 = async () => {
     let obj = {
       nasdaq: {
         c_1: document.getElementById("nasdaq1").value,
@@ -97,7 +101,7 @@ export default function Chat() {
       },
       days_after: document.getElementById("days").value,
     };
-    const res2 = a.change2(obj);
+    const res2 = await a.change2(obj);
     let s = res2.output.c1
     let t = res2.output.c2
     var message2_1
@@ -105,6 +109,7 @@ export default function Chat() {
     message2_1 = 'For ' + s.nasdaq + ":\nOpen : " + s.open + "\nHigh : " + s.high  + "\nLow : " + s.low + "\nClose : " + s.close
     message2_2 = 'For ' + t.nasdaq + ":\nOpen : " + t.open + "\nHigh : " + t.high  + "\nLow : " + t.low + "\nClose : " + t.close
     var message_n = message2_1 + "\n\n" + message2_2
+    console.log(message_n)
     setState(message_n)
   };
   const change3 = async () => {
@@ -225,7 +230,7 @@ export default function Chat() {
                       typewriter
 
                         .typeString("Finny is working.......")
-                        .pauseFor(1000)
+                        .pauseFor(10000)
                         .deleteAll()
                         .start()
                         .typeString("Wohooo here's my prediction !!!")
@@ -265,18 +270,19 @@ export default function Chat() {
           {button2 && button1 != true && button3 != true && button4 != true && (
             <div className="container w-50 d-flex">
               <div className="mt-3" style={{ marginRight: "3%", width: "70%" }}>
-                <p className="output-text">
+                <p className="output-text" style={{ whiteSpace: 'pre-wrap' }}>
                   <Typewriter
                     onInit={(typewriter) => {
                       typewriter
 
                       .typeString("Finny is working.......")
-                      .pauseFor(1000)
+                      .pauseFor(5000)
                       .deleteAll()
                       .start()
                       .typeString("Wohooo here's my prediction !!!")
                     }}
                   />
+                  {state}
                 </p>
               </div>
               <div className="d-flex flex-column flex-md-row justify-content-end w-70 mt-2">
@@ -327,18 +333,19 @@ export default function Chat() {
           {button3 && button1 != true && button2 != true && button4 != true && (
             <div className="container w-50 d-flex">
               <div className="mt-3" style={{ marginRight: "3%", width: "70%" }}>
-                <p className="output-text">
+                <p className="output-text" style={{ whiteSpace: 'pre-wrap' }}>
                   <Typewriter
                     onInit={(typewriter) => {
                       typewriter
 
                       .typeString("Finny is working.......")
-                      .pauseFor(1000)
+                      .pauseFor(5000)
                       .deleteAll()
                       .start()
                       .typeString("Wohooo here's my prediction !!!")
                     }}
                   />
+                  {state}
                 </p>
               </div>
               <div className="d-flex flex-column flex-md-row justify-content-end w-70 mt-2">
@@ -383,18 +390,19 @@ export default function Chat() {
           {button4 && button1 != true && button2 != true && button3 != true && (
             <div className="container w-50 d-flex">
               <div className="mt-3" style={{ marginRight: "3%", width: "70%" }}>
-                <p className="output-text">
+                <p className="output-text" style={{ whiteSpace: 'pre-wrap' }}>
                   <Typewriter
                     onInit={(typewriter) => {
                       typewriter
 
                       .typeString("Finny is working.......")
-                      .pauseFor(1000)
+                      .pauseFor(5000)
                       .deleteAll()
                       .start()
                       .typeString("Wohooo here's my prediction !!!")
                     }}
                   />
+                  {state}
                 </p>
               </div>
               <div className="d-flex flex-column flex-md-row justify-content-end w-70 mt-2">
