@@ -15,14 +15,13 @@ import {
   Link
 } from "react-router-dom";
 import ChatPage from './Components/Chatbot/ChatPage'
-//import ContextData from './Components/Context_api/ContextData';
+import ContextData from './Components/Context_api/ContextData';
 import Chat from './Components/Chatbot2/Chat';
 import Search from './Components/Search_History/Search';
 
 function App() {
   const [count, setCount] = useState(0)
   return (
-<<<<<<< HEAD
     <ContextData>
       <Router>
           <Navbar />
@@ -46,8 +45,7 @@ function App() {
         </Routes>
       </Router>
     </ContextData>
-=======
-    <Chat/>
+    // <Chat/>
     // <ContextData>
     //   <Router>
     //     <Maybeshownavbar>
@@ -73,7 +71,6 @@ function App() {
     //     </Routes>
     //   </Router>
     // </ContextData>
->>>>>>> 3d316fa2e6b6522f8cab996ae64d4c03c91b6a36
   );
 }
 

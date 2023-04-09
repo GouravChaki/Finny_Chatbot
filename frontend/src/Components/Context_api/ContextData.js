@@ -18,10 +18,8 @@ export default function ContextData(props) {
   const Signup = async (req) =>{
     try{
      const res = await axios.post("http://localhost:8000/auth/createuser",req)
-     console.log(res)
-     await setToken(res.data) // Gives the JSON web token
-     console.log(token)
-     Search_History(token)
+     setToken(res.data)
+     Search_History(res.data)
     }
     catch(error){
       console.log(error)
@@ -30,21 +28,26 @@ export default function ContextData(props) {
   const Login = async (req) =>{
     try{
      const res = await axios.post("http://localhost:8000/auth/login",req)
-     console.log(res.data)
-     setToken(res.data) // Gives the JSON web token
-     console.log(token)
-     Search_History(token)
+     setToken(res.data)
+     Search_History(res.data)
     }
     catch(error){
       console.log(error)
     }
   }
 
-  const Search_History = async (req) =>{
+  const Search_History = async (receive_token) =>{
     try{
-     const res = await axios.post("http://localhost:8000/auth/getuser",req)
-     console.log(res)
-     setMess(res)
+      // const execute= async ()=>{
+    const url = "http://localhost:8000/history/feature1";
+    const res = await fetch(url, {method: 'GET', headers: {
+      'Authorization': receive_token
+    }})
+  //   return res
+  // }
+    //  execute().then((res)=>{console.log(res.json())})
+    //  setMess(res)
+    console.log(res.body.getReader())
     }
     catch(error){
       console.log(error)
