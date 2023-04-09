@@ -1,6 +1,6 @@
 import React from 'react'
 import pic from './Homepage__20058480_62400571.png'
-
+import { Link } from 'react-router-dom'
 export default function mid() {
    return (
        <>

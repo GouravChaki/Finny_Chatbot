@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import './Details.css'
 import Alert from './Alert'
+import Context from '../Context_api/Context'
 export default function Details() {
+  const a = useContext(Context)
   const [value,setValue]=useState()
   const alert=(event)=>{
-    const a = useContext(Context)
       event.preventDefault()
       const obj={
          firstname: document.getElementById("firstname").value,
