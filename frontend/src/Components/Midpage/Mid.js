@@ -7,31 +7,20 @@ export default function mid() {
       <div className='d-flex' style={{backgroundColor: 'black',height: '620px'}}>
       <div style={{marginTop: '9%', marginLeft: '7%', fontSize: '110%'}}>
        <h1 style={{marginTop: '-69px',fontSize: '380%',color: 'white' }}>
-       ChatBOT
+       Finny
        </h1>
-       <p style={{paddingTop: '20px',color: 'white'}}>Lorem ipsum dolor sit amet, consectetur 
-          adipiscing elit, sed do eiusmod tempor 
-          incididunt ut labore et dolore magna 
-          aliqua. Ut enim ad minim veniam, quis 
-          nostrud exercitation ullamco laboris nisi 
-          ut aliquip ex ea commodo consequat.Quis aute 
-          iure reprehenderit in voluptate velit esse 
-          cillum dolore eu fugiat nulla pariatur. 
-          Excepteur sint obcaecat cupiditat non proident,
-          sunt in culpa qui officia deserunt mollit anim 
-          id est laborum.
+       <p style={{paddingTop: '20px',color: 'white'}}>       Welcome! My name is Finny and I'm here to help you with your stock-market related issues. 
+       Use me for recommendations on stock based on how much you want to invest. 
+       I can also predict future values of stock and compare two companies based on how they’ll do in the next couple of days. 
+       Have fun exploring!
       </p>
 
-     <button class="btn btn-primary" type="submit" style={{marginTop: '18%',paddingLeft: '50px',paddingRight: '50px'}}>Login</button>
-     <button class="btn btn-primary" type="submit" style={{marginTop: '18%',paddingLeft: '50px',paddingRight: '50px',marginLeft: '20px'}}>SignUp</button>
-  </div>
+      <button className="btn btn-primary mt-5" type="submit"><Link to="/login" style={{ color: 'inherit', textDecoration: 'inherit'}}>Login</Link></button>
+     <button className="btn btn-primary mx-4 mt-5" type="submit"><Link to="/signup" style={{ color: 'inherit', textDecoration: 'inherit'}}>Signup</Link></button>   
+    </div>
     <div>
-        <div>
-          <img src={pic} class="rounded float-end" style={{width: '83%',marginTop: '18vh', marginRight: '7%'}} />
-        </div> 
-        <div style={{marginTop: '490px', marginLeft: '125px'}}>
-          <button class="btn btn-primary" type="submit" style={{paddingLeft: '120px',paddingRight: '120px',borderRadius: '20px'}}>Try ChatBOT</button>
-        </div>
+      <div><img src={pic} className="rounded mx-4" style={{width: '75%',marginTop: '5vh'}} /></div>
+      <button className="btn btn-primary w-70 mt-3" style={{ marginLeft:'30vh'}}><Link to="/finny" style={{ color: 'inherit', textDecoration: 'inherit'}}>Try Finny!</Link></button>
     </div>
        </div>
        
