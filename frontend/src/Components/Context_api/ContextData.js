@@ -35,6 +35,8 @@ export default function ContextData(props) {
   }
 
   const Search_History = async (receive_token) =>{
+    
+    //feature1
     try{
         console.log(receive_token)
     const url = "http://localhost:8000/history/feature1";
@@ -44,12 +46,60 @@ export default function ContextData(props) {
     }})
     const response=await res.json()
     console.log(response)
-    //feature_1
     setF1(response)
     }
     catch(error){
       console.log(error)
     }
+
+//feature2
+
+    try{
+  const url = "http://localhost:8000/history/feature2";
+  const res = await fetch(url, {method: 'GET', headers: {
+    'Content-Type': 'application/json',
+    'Authorization': receive_token
+  }})
+  const response=await res.json()
+  console.log(response)
+  setF2(response)
+  }
+  catch(error){
+    console.log(error)
+  }
+
+//feature3
+
+  try{
+const url = "http://localhost:8000/history/feature3";
+const res = await fetch(url, {method: 'GET', headers: {
+  'Content-Type': 'application/json',
+  'Authorization': receive_token
+}})
+const response=await res.json()
+console.log(response)
+
+setF3(response)
+}
+catch(error){
+  console.log(error)
+}
+
+//faeture4
+
+try{
+const url = "http://localhost:8000/history/feature4";
+const res = await fetch(url, {method: 'GET', headers: {
+'Content-Type': 'application/json',
+'Authorization': receive_token
+}})
+const response=await res.json()
+console.log(response)
+setF4(response)
+}
+catch(error){
+console.log(error)
+}
   }
 
   return (

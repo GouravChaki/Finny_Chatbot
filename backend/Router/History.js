@@ -35,8 +35,10 @@ router.get('/history/feature1',fetch,async (req,res)=>{
 
 router.get('/history/feature2',fetch,async (req,res)=>{
     try{
-    const feature2 = await F2.find({user: req.user.id}).limit(4)
-    res.send(feature2)
+    console.log(req.id)
+    const feature2 = await F2.find({user_id: '64318fce3483fc425ab1801b'}).limit(4)
+    const f=JSON.stringify(feature2)
+    res.send(f)
     }
     catch(error){
         console.error(error.message)
@@ -47,7 +49,9 @@ router.get('/history/feature2',fetch,async (req,res)=>{
 
 router.get('/history/feature3',fetch,async (req,res)=>{
     try{
-    const feature3 = await F3.find({user: req.user.id}).limit(4)
+    console.log(req.id)
+    //eyJhbGciOiJIUzI1NiJ9.NjQzMWY2OWJmYzhkNTI3NzM3ZWQyMDQ4.N7ZLesnrNOioUE4PA54WeGywbZ_66TVO4MV_UfyepPU
+    const feature3 = await F3.find({user_id: '64318fce3483fc425ab1801b'}).limit(4)
     res.send(feature3)
     }
     catch(error){
@@ -59,7 +63,7 @@ router.get('/history/feature3',fetch,async (req,res)=>{
 
 router.get('/history/feature4',fetch,async (req,res)=>{
     try{
-    const feature4 = await F4.find({user: req.user.id}).limit(4)
+    const feature4 = await F4.find({user_id: '64318fce3483fc425ab1801b'}).limit(4)
     res.send(feature4)
     }
     catch(error){
