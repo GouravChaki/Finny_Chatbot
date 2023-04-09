@@ -2,39 +2,49 @@ import React from "react";
 import { Link } from 'react-router-dom'
 import pic from "./LoginPage.png";
 import InputForm from "./Form.js";
-export default function Login() {
+import LoginFinny from "./LoginFinny.json"
+import Lottie from "react-lottie";
+ function Login() {
+  const defaultOptions = {
+    loop: true,
+    autoplay: true, 
+    animationData: LoginFinny,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice'
+    }
+  };
   return (
-    //<div className='container'>
-    <div className="d-flex flex-column flex-md-row">
-      <div className="container card border-primary w-70 mt-1 mb-5 ms-3">
-        <div className="col-md" style={{marginTop: '-41px'}}>
-          <div className="card-body mx-5 mt-5" style={{ fontFamily: "Inter" ,height: '350px',paddingTop: '1%',paddingBottom: '120px'}}>
-            <h2 className="card-title mt-5">Hi, Welcome Back!</h2>
-            <p className="card-text" style={{ color: "#6a6a6a" }}>
+    <div className='card' style={{backgroundColor: 'black',borderRadius: '0px',height: '690px'}}>
+    <div className="d-flex flex-column flex-md-row" style={{marginTop: '40px',backgroundColor: 'black',width: '1050px',marginLeft: '145px'}}>
+      <div className="container card border-primary w-70 mt-1 mb-5 ms-3" style={{backgroundColor: 'black',paddingBottom: '23px'}}>
+        <div className="col-md" style={{marginTop: '-61px'}}>
+          <div className="card-body mx-5 mt-5" style={{ fontFamily: "Inter" ,height: '320px',paddingTop: '1%',paddingBottom: '120px'}}>
+            <h2 className="card-title mt-5" style={{color: 'white',paddingTop: '1px'}}>Hi, Welcome Back!</h2>
+            <p className="card-text"style={{color: 'white'}}>
               Please put your login credentials below to start using the chatbot
             </p>
             <InputForm />
             <p
               className="card-text mt- text-center"
-              style={{ color: "#6a6a6a" }}
+             style={{color: 'white',paddingTop: '15px',marginLeft: '43px'}}
             >
               Don't have an account?
-              <button type="button" className="btn btn-link">
+              <button type="button" className="btn btn-link" >
                 Sign up for free
               </button>
             </p>
           </div>
           <div
             className="m-5 d-flex justify-content-center "
-            style={{ width: "1%", height: "7%",paddingLeft: '1px',paddingTop: '10px' }}
+            style={{ width: "1%", height: "9%",paddingLeft: '1px',paddingTop: '10px' }}
           >
              <Link to="/"
-              className="btn btn-primary shadow-lg mb-1 w-100 h-100"
-              style={{ borderRadius: "50px" }}
+              className="btn -primary shadow-lg mb-1 w-100 h-100"
+              style={{ borderRadius: "80px",marginTop: '89px',marginLeft: '58px' }}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                style={{ marginLeft: "-12px" ,marginTop: "-11px"}}
+                style={{ marginLeft: "-12px" ,marginTop: "-20px"}}
                 width="25"
                 height="25"
                 fill="white"
@@ -50,16 +60,20 @@ export default function Login() {
           </div>
         </div>
       </div>
-      <div className="mt-2" style={{borderRight:"0px"}}>
+      {/* <div className="mt-2" style={{borderRight:"0px"}}>
         <img
           src={pic}
           className="card-img img-fluid shadow-lg ml-4 rounded-left"
           style={{ marginTop: '13px',borderRadius: "56px",height: '650px',width: '1300px' }}
         />
+      </div> */}
+      <div className="login" style={{paddingLeft: '93px'}}>
+       
+        <Lottie options={defaultOptions}/>
       </div>
     </div>
-    //</div>
+    </div>
   );
 }
-
+export default Login;
 //image styling: style={{height:"95vh",width:"170vh"}}

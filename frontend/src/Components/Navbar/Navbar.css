@@ -35,5 +35,11 @@
 } 
 .nav-link:hover
 {
-    color: #2b40e2 !important;
+    color: #2b3cbd !important;
 }
+/* .nav-link
+{
+    color: #25205653 !important;
+    margin-left: 8px;
+    text-decoration: none;
+}  */

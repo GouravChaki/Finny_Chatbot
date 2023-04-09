@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-const Maybeshownavbar =({children})=> {
+const MaybeshowNavbar =({children})=> {
 
    const location = useLocation();
    const [showNavbar,setshowNavbar]=useState(false)
@@ -16,4 +16,4 @@ const Maybeshownavbar =({children})=> {
  
 }
 
-export default Maybeshownavbar
+export default MaybeshowNavbar;

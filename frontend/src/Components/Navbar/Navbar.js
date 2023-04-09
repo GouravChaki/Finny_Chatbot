@@ -1,14 +1,14 @@
 import { Link } from 'react-router-dom'
-import React, { useState,useContext } from 'react'
+import React, { useState } from 'react'
 import './Navbar.css'
-import Context from '../Context_api/Context'
+
 const Navbar = () => {
-   const a=useContext(Context)
+    const [navbar, setNavbar] = useState(false);
     const changeBg = () => {
       if (window.scrollY >= 100){
-        a.setNavbar(true);
+        setNavbar(true);
       }else{
-        a.setNavbar(false);
+        setNavbar(false);
       }
     };
     window.addEventListener("scroll", changeBg);
@@ -16,17 +16,18 @@ const Navbar = () => {
        <>
        <nav 
          className={
-          a.navbar 
+          navbar 
              ? "navbar scroll navbar-expand-sm fixed-top" 
              : "navbar navbar-expand-sm fixed-top"
          }
        >
         
-        <a className='navbar-brand'>
+        <a href='#' className='navbar-brand'>
             <h5>Finny</h5>
         </a>
         <div>
         <div class="navbar-nav">
+        
           <div className='nav-item'>
              <Link class="nav-link" to="/">Home</Link>
           </div>
@@ -37,7 +38,10 @@ const Navbar = () => {
              <Link class="nav-link" to="/signup">Sign Up</Link>
           </div>
           <div className='nav-item'>
-             <Link class="nav-link" to="/search_history">Search History</Link>
+             <a class="nav-link" href="#">About Us</a>
+          </div>
+          <div className='nav-item'>
+             <a class="nav-link" href="#">Search History</a>
           </div>
           {/* </div>
               <Link class="nav-link" to="/">Home</Link>
