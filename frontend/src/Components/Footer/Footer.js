@@ -2,8 +2,7 @@ import React from 'react'
 export default function Footer() {
 
     return (
-        <div className='container bg-light'>
-            <div className='d-flex flex-column flex-md-row' style={{backgroundColor: '#2b3cbd',width: '1351px',marginLeft: '-130px',marginTop: '0px'}}>
+            <div className='d-flex flex-column flex-md-row' style={{backgroundColor: '#2b3cbd'}}>
                 <div className="col-md text-center">
                     <h3 className='text-center m-3' style={{color: '#e1e6f7c9',fontSize: '20px'}}>Contact Us</h3>
                         <form>
@@ -16,6 +15,5 @@ export default function Footer() {
                     <p className='mt-3' style={{color: '#e1e6f7c9'}}>Reach us at exampleEmail@gmail.com</p>
                 </div>
             </div>
-        </div>
     )
 }

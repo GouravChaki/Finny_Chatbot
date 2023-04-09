@@ -15,7 +15,7 @@ export default function Search() {
     {/* <Navbar/> */}
     <div style={{marginTop:'20vh'}}>
         {
-            a.mess && <div>{a.mess}</div>
+            a.f1 && <div>{a.f1}</div>
         }
     </div>
     {/* <Footer/> */}

@@ -24,7 +24,7 @@ router.get('/history/feature1',fetch,async (req,res)=>{
     console.log(typeof(feature1))
     const f=JSON.stringify(feature1)
     console.log(f)
-    res.send("hello")
+    res.send(f)
     }
     catch(error){
         console.error(error.message)
