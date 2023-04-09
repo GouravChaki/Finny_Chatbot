@@ -4,7 +4,7 @@ import pic from './hawhi1yt.png'
 import picc from './Finance 2.png'
 import piccc from './Cute chatbot 2.png'
 import Help from "./Help.json"
-// import Lottie from "react-lottie";
+import Lottie from "react-lottie";
  function Slider() {
   // const defaultOptions = {
   //   loop: true,

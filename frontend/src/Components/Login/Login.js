@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import pic from "./LoginPage.png";
 import InputForm from "./Form.js";
 import LoginFinny from "./LoginFinny.json"
-// import Lottie from "react-lottie";
+import Lottie from "react-lottie";
  function Login() {
   const defaultOptions = {
     loop: true,
@@ -69,7 +69,7 @@ import LoginFinny from "./LoginFinny.json"
       </div> */}
       <div className="login" style={{paddingLeft: '93px'}}>
        
-        {/* <Lottie options={defaultOptions}/> */}
+        <Lottie options={defaultOptions}/>
       </div>
     </div>
     </div>
