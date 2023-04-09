@@ -17,6 +17,13 @@ export default function ContextData(props) {
     color: null
   })
 
+  const [f1_out,setF1_out]=useState()
+  // const [f2,setF2]=useState()
+  // const [f3,setF3]=useState()
+  // const [f4,setF4]=useState()
+
+
+
   const [token,setToken]=useState()
   const Signup = async (req) =>{
     try{
@@ -129,7 +136,7 @@ const change1=async (req)=>{
       },
       body: JSON.stringify(req)})
       const response=await res.json()
-      console.log(response)
+      return response
       }
       catch(error){
       console.log(error)
@@ -188,7 +195,7 @@ const change1=async (req)=>{
   }
 
   return (
-    <Context.Provider value={{alert,change1,change2,change3,change4,setAlert,navbar,setNavbar,Login,v_sign,setSign,f1,setF1,f2,setF2,f3,setF3,f4,setF4,v_log,setLog,Signup,token}}>
+    <Context.Provider value={{alert,change1,change2,change3,change4,setAlert,navbar,setNavbar,Login,v_sign,setSign,f1,setF1,f1_out,setF1_out,f2,setF2,f3,setF3,f4,setF4,v_log,setLog,Signup,token}}>
         {props.children}
     </Context.Provider>
   )
