@@ -17,9 +17,14 @@ url3='http://127.0.0.1:5000/individual_company'            //these are flask url
 url4='http://127.0.0.1:5000/historical_data'
 
 router.get('/history/feature1',fetch,async (req,res)=>{
+    console.log(req)
     try{
-    const feature1 = await F1.find({user: req.user.id}).limit(4)
-    res.send(feature1)
+    console.log(req.id)
+    const feature1 = await F1.find({user_id: '64318fce3483fc425ab1801b'}).limit(4)
+    console.log(typeof(feature1))
+    const f=JSON.stringify(feature1)
+    console.log(f)
+    res.send("hello")
     }
     catch(error){
         console.error(error.message)

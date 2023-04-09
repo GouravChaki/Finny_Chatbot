@@ -1,7 +1,8 @@
 const jwt=require("jsonwebtoken")
 const JWT_SECRET="IamGargee"
-const fetchuser=(req,res,next)=>{
-    const token=req.header('auth-token')
+const fetchuser=async (req,res,next)=>{
+    console.log(req.headers.authorization)
+    const token=await req.headers.authorization
     if(!token){
         res.status(401).send({error:"Please authenticate using valid token"})
     }
