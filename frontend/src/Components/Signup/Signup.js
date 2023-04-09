@@ -2,7 +2,7 @@ import React from 'react'
 import Details from './Details.js'
 import Button from './Button_arrow'
 import SignUpFinny from "./SignUpFinny.json"
-import Lottie from "react-lottie";
+// import Lottie from "react-lottie";
  function Signup() { 
   const defaultOptions = {
     loop: true,
@@ -51,7 +51,7 @@ import Lottie from "react-lottie";
       </div> */}
        <div className="signup" style={{paddingLeft: '23px'}}>
        
-       <Lottie options={defaultOptions}/>
+       {/* <Lottie options={defaultOptions}/> */}
      </div>
     </div>
     </div>
