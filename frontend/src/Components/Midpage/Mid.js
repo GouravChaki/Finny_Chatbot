@@ -12,7 +12,7 @@ export default function mid() {
        <p style={{paddingTop: '20px',color: 'white'}}>       Welcome! My name is Finny and I'm here to help you with your stock-market related issues. 
        Use me for recommendations on stock based on how much you want to invest. 
        I can also predict future values of stock and compare two companies based on how they’ll do in the next couple of days. 
-       Have fun exploring!
+       Have fun exploring! (Please only enter NASDAQ codes for the correct output)
       </p>
 
       <button className="btn btn-primary mt-5" type="submit"><Link to="/login" style={{ color: 'inherit', textDecoration: 'inherit'}}>Login</Link></button>
