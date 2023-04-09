@@ -28,7 +28,7 @@ const Schema = new mongoose.Schema({
         default: Date.now
     },
 });
-const user=mongoose.model('finny',Schema)
+const user=mongoose.model('user',Schema)
 module.exports = user
 
 /* Collection schemas

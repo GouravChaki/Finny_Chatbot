@@ -1,13 +1,19 @@
-import React from 'react'
-
-export default function Alert(props) {
+import React, { useState, useEffect, useContext } from 'react';
+import Context from '../Context_api/Context';
+export default function Alert() {
+  const a=useContext(Context)
   const close=()=>{
-    props.setValue()
+    a.setAlert(
+    {
+      msg: null,
+      color: null
+    }
+    )
   }
   return (
     <div>
-  <div class="alert sticky-top alert-warning alert-dismissible fade show" role="alert" style={{width: '100%'}}>
-       <strong>You Have Successfully Signed In!</strong> 
+  <div className={`alert sticky-top alert-${a.alert.color} alert-dismissible fade show`}  role="alert" style={{width: '100%'}}>
+       <strong>{a.alert.msg}</strong> 
        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onClick={close}></button>
   </div>
   </div>

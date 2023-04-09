@@ -4,7 +4,6 @@ import Alert from './Alert'
 import Context from '../Context_api/Context'
 export default function Details() {
   const a = useContext(Context)
-  const [value,setValue]=useState()
   const alert=(event)=>{
       event.preventDefault()
       const obj={
@@ -15,7 +14,6 @@ export default function Details() {
       }
       console.log(obj)
       a.Signup(obj)
-    setValue(1)
   }
 return (
 <div style={{fontFamily:'Inter'}}> 
@@ -37,7 +35,7 @@ return (
 <div className="d-grid gap-2 col-6 mx-auto">
   <button className="btn btn-primary" id="signupbt" type="button" onClick={alert} >Sign Up</button>
 </div>
-{value && <Alert value={value} setValue={setValue}/>}
+{a.alert.msg && <Alert/>}
 </form>
 
 </div> 

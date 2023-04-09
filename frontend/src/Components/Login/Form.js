@@ -4,12 +4,9 @@ import {useContext} from 'react'
 import Context from '../Context_api/Context'
 import Alert from './Alert'
     export default function InputForm(){
-    //   const [value,setValue]=useState()
-    //   const alert=()=>{
-    //     setValue(1)
         const a = useContext(Context)
         const alert=(event)=>{
-          event.preventDefault()
+            event.preventDefault()
           const obj={
              email: document.getElementById("Email").value,
              password: document.getElementById("Pass").value
@@ -29,14 +26,10 @@ return (
                 <input type="password" className="form-control" id="Pass" name="Pass" placeholder='Password'/>
             </div>
             <div>
-            <button className="btn btn-primary w-100 shadow" type="submit" onClick={alert}>Login</button>
+            <button className="btn btn-primary w-100 shadow" onClick={alert}>Login</button>
             </div>
-            {/* {value && <Alert value={value} setValue={setValue}/>} */}
+            {a.alert.msg && <Alert/>}
         </form>
         </div>
     )
 }
-
-
-{/* <label htmlFor="Email" className="form-label">Enter Email</label>
-<label htmlFor="Pass" className="form-label">Enter Password</label> */}

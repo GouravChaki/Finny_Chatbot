@@ -12,11 +12,20 @@ export default function ContextData(props) {
 
   const [navbar, setNavbar] = useState(false);
 
+  const [alert,setAlert]=useState({
+    msg: null,
+    color: null
+  })
+
   const [token,setToken]=useState()
   const Signup = async (req) =>{
     try{
      const res = await axios.post("http://localhost:8000/auth/createuser",req)
      setToken(res.data)
+     setAlert({
+      msg: "You have successfully signed in",
+      color: "success"
+    })
      await Search_History(res.data)
     }
     catch(error){
@@ -27,10 +36,18 @@ export default function ContextData(props) {
     try{
      const res = await axios.post("http://localhost:8000/auth/login",req)
      setToken(res.data)
+     setAlert({
+      msg: "You have successfully logged in",
+      color: "success"
+    })
      await Search_History(res.data)
     }
     catch(error){
-      console.log(error)
+      // console.log(error.response.data)
+      setAlert({
+        msg: error.response.data,
+        color: "danger"
+      })
     }
   }
 
@@ -103,7 +120,7 @@ console.log(error)
   }
 
   return (
-    <Context.Provider value={{navbar,setNavbar,Login,v_sign,setSign,f1,setF1,f2,setF2,f3,setF3,f4,setF4,v_log,setLog,Signup,token}}>
+    <Context.Provider value={{alert,setAlert,navbar,setNavbar,Login,v_sign,setSign,f1,setF1,f2,setF2,f3,setF3,f4,setF4,v_log,setLog,Signup,token}}>
         {props.children}
     </Context.Provider>
   )

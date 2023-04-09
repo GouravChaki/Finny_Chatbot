@@ -62,7 +62,7 @@ router.post('/auth/login', [
 
     const error = validationResult(req);
     if (!error.isEmpty()) {
-        return res.status(404).json({ error:{msg: error.array() }});
+        return res.status(404).send("Not a email type");
     }
     
     try{
