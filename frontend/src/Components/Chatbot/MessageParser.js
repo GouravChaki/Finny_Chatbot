@@ -2,7 +2,6 @@ import React from 'react';
 import { useContext } from 'react';
 import Context from '../Context_api/Context'
 const MessageParser = ({ children, actions }) => {
-  const a = useContext(Context)
   // var re = new RegExp("/([1-9][0-9]*)/");
   const parse = (message) => {
 
@@ -13,6 +12,7 @@ const MessageParser = ({ children, actions }) => {
       try {
         var num = lowerCaseMessage.match(/\d+\.?\d*/)[0];
         num = parseFloat(num); //num extracted to be sent to back-end
+        console.log(num)
         actions.recommend1();
       }
       catch (e) {
@@ -26,9 +26,11 @@ const MessageParser = ({ children, actions }) => {
     }
 
     if (lowerCaseMessage.includes('nasdaq1')) {
+      console.log(message)
       //recommend stock on future price
       try {
-        lowerCaseMessage = lowerCaseMessage.replace("nasdaq1", '');
+        const a = message.replace("nasdaq1", '');
+        console.log(a)
         code = lowerCaseMessage.replace(/[^A-Za-z' ']/g, '');
         lowerCaseMessage = lowerCaseMessage.replace(",", ' ');
         code = code.toUpperCase(); //NASDAQ Codes Extracted from message

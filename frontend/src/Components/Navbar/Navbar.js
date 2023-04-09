@@ -37,10 +37,7 @@ const Navbar = () => {
              <Link class="nav-link" to="/signup">Sign Up</Link>
           </div>
           <div className='nav-item'>
-             <a class="nav-link" href="#">About Us</a>
-          </div>
-          <div className='nav-item'>
-             <a class="nav-link" href="#">Contact Us</a>
+             <Link class="nav-link" to="/search_history">Search History</Link>
           </div>
           {/* </div>
               <Link class="nav-link" to="/">Home</Link>
