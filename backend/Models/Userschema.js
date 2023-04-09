@@ -29,7 +29,6 @@ const Schema = new mongoose.Schema({
     },
 });
 const user=mongoose.model('finny',Schema)
-user.createIndexes();
 module.exports = user
 
 /* Collection schemas
