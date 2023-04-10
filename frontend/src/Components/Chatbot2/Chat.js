@@ -52,40 +52,66 @@ export default function Chat() {
     console.log(obj);
     const response=await a.change1(obj);
     console.log(response)
-    message='Index:'+' '
-    response.c_names.Index.map((items)=>{
-    message=message+ ' '+items
-    console.log(message)
-    })
-    console.log(message)
-    message+='\nLast Sale:'+' '
-    response.c_names.Last_Sale.map((items)=>{
-      console.log(message)
+    // message='Index:'+' '
+    // response.c_names.Index.map((items)=>{
+    // message=message+ ' '+items
+    // console.log(message)
+    // })
+    message+='\nNasdaq Code:'+' '
+    response.c_names.Symbol.map((items)=>{
       message=message+ ' '+items
       console.log(message)
       })
+      
+    console.log(message)
       message+='\nName:'+' '
       response.c_names.Name.map((items)=>{
         message=message+ ' '+items
         console.log(message)
         })
-        message+='\nSymbol:'+' '
-        response.c_names.Symbol.map((items)=>{
-          message=message+ ' '+items
-          console.log(message)
-          })
-          message+='\nPrice_5 Days:'+' '
+        const date = new Date();
+
+        let day = date.getDate();
+  let month = date.getMonth()+1;
+  let year = date.getFullYear();
+  let currentDate = `${year}-${month}-${day}`;
+  message+='\n'+currentDate+':'+' '
+    response.c_names.Last_Sale.map((items)=>{
+      console.log(message)
+      message=message+ ' '+items
+      console.log(message)
+      })
+
+      day = date.getDate()+5;
+month = date.getMonth()+1;
+year = date.getFullYear();
+
+// This arrangement can be altered based on how we want the date's format to appear.
+currentDate = `${year}-${month}-${day}`;
+message+='\n'+currentDate+':'+' '
           response.c_names.price_5days.map((items)=>{
             message=message+ ' '+items
             console.log(message)
             })
-            message+='\nPrice_7 Days:'+' '
+            day = date.getDate()+7;
+            month = date.getMonth()+1;
+            year = date.getFullYear();
+            
+            // This arrangement can be altered based on how we want the date's format to appear.
+            currentDate = `${year}-${month}-${day}`;
+            message+='\n'+currentDate+':'+' '
             response.c_names.price_7days.map((items)=>{
               message=message+ ' '+items
               console.log(message)
               })
-              message+='\nPrice_10 Days:'+' '
-              response.c_names.price_10days.map((items)=>{
+              day = date.getDate()+10;
+              month = date.getMonth()+1;
+              year = date.getFullYear();
+              
+              // This arrangement can be altered based on how we want the date's format to appear.
+              currentDate = `${year}-${month}-${day}`;
+              message+='\n'+currentDate+':'+' '
+                            response.c_names.price_10days.map((items)=>{
                 message=message+ ' '+items
                 console.log(message)
                 })
@@ -177,7 +203,7 @@ export default function Chat() {
       <div
         style={{
           backgroundImage: `url(${picture})`,
-          height: "100vh",
+          height: "1000px",
           width: "210vh",
         }}
       >
@@ -223,7 +249,7 @@ export default function Chat() {
             <div className="container w-50 d-flex">
               <div className="w-100 mt-3" style={{ marginRight: "3%" }}>
                 <p className="output-text" 
-                style={{ whiteSpace: 'pre-wrap' }}
+                style={{ whiteSpace: 'pre-wrap'}}
                 >
                   {<Typewriter
                     onInit={(typewriter) => {
@@ -444,15 +470,15 @@ export default function Chat() {
           )}
         </div>
         <button
-          className="btn btn-primary w-70 mt-5"
+          className="btn w-70 mt-5"
           style={{ marginLeft: "30vh" }}
         >
           <Link to="/" style={{ color: "inherit", textDecoration: "inherit" }}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
+              width="40"
+              height="50"
+              fill="white"
               class="bi bi-arrow-left"
               viewBox="0 0 16 16"
             >
