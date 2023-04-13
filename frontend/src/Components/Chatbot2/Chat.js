@@ -5,6 +5,7 @@ import Typewriter from "typewriter-effect";
 import { useState, useContext } from "react";
 import Context from "../Context_api/Context";
 import picture from "./wallpaperbetter.jpg";
+import Footer from '../Footer/Footer'
 export default function Chat() {
   const a = useContext(Context);
   const [state,setState]=useState('')
@@ -199,11 +200,10 @@ message+='\n'+currentDate+':'+' '
   };
 
   return (
-    <>
       <div
         style={{
           backgroundImage: `url(${picture})`,
-          height: "100%",
+          height: "100vh",
           width: "100%",
         }}
       >
@@ -490,6 +490,5 @@ message+='\n'+currentDate+':'+' '
           </Link>
         </button>
       </div>
-    </>
   );
 }

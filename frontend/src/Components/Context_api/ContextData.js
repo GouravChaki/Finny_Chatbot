@@ -27,7 +27,7 @@ export default function ContextData(props) {
   const [token,setToken]=useState()
   const Signup = async (req) =>{
     try{
-     const res = await axios.post("http://localhost:8000/auth/createuser",req)
+     const res = await axios.post("https://finny-backend.onrender.com/auth/createuser",req)
      await setToken(res.data)
      setAlert({
       msg: "You have successfully signed in",
@@ -41,7 +41,7 @@ export default function ContextData(props) {
   }
   const Login = async (req) =>{
     try{
-     const res = await axios.post("http://localhost:8000/auth/login",req)
+     const res = await axios.post("https://finny-backend.onrender.com/auth/login",req)
      setToken(res.data)
      setAlert({
       msg: "You have successfully logged in",
@@ -63,7 +63,7 @@ export default function ContextData(props) {
     //feature1
     try{
         console.log(receive_token)
-    const url = "http://localhost:8000/history/feature1";
+    const url = "https://finny-backend.onrender.com/history/feature1";
     const res = await fetch(url, {method: 'GET', headers: {
       'Content-Type': 'application/json',
       'Authorization': receive_token
@@ -79,7 +79,7 @@ export default function ContextData(props) {
 //feature2
 
     try{
-  const url = "http://localhost:8000/history/feature2";
+  const url = "https://finny-backend.onrender.com/history/feature2";
   const res = await fetch(url, {method: 'GET', headers: {
     'Content-Type': 'application/json',
     'Authorization': receive_token
@@ -95,7 +95,7 @@ export default function ContextData(props) {
 //feature3
 
   try{
-const url = "http://localhost:8000/history/feature3";
+const url = "https://finny-backend.onrender.com/history/feature3";
 const res = await fetch(url, {method: 'GET', headers: {
   'Content-Type': 'application/json',
   'Authorization': receive_token
@@ -112,7 +112,7 @@ catch(error){
 //faeture4
 
 try{
-const url = "http://localhost:8000/history/feature4";
+const url = "https://finny-backend.onrender.com/history/feature4";
 const res = await fetch(url, {method: 'GET', headers: {
 'Content-Type': 'application/json',
 'Authorization': receive_token
@@ -128,7 +128,7 @@ console.log(error)
 
 const change1=async (req)=>{
     try{
-      const url = "http://localhost:8000/add/feature1";
+      const url = "https://finny-backend.onrender.com/add/feature1";
       console.log(token)
       const res = await fetch(url, {method: 'POST', headers: {
       'Content-Type': 'application/json',
@@ -145,7 +145,7 @@ const change1=async (req)=>{
   const change2=async (req)=>{
     try{
       console.log(req)
-      const url = "http://localhost:8000/add/feature2";
+      const url = "https://finny-backend.onrender.com/add/feature2";
       console.log(token)
       const res = await fetch(url, {method: 'POST', headers: {
       'Content-Type': 'application/json',
@@ -163,7 +163,7 @@ const change1=async (req)=>{
   }
   const change3=async (req)=>{
     try{
-      const url = "http://localhost:8000/add/feature3";
+      const url = "https://finny-backend.onrender.com/add/feature3";
       console.log(token)
       const res = await fetch(url, {method: 'POST', headers: {
       'Content-Type': 'application/json',
@@ -179,7 +179,7 @@ const change1=async (req)=>{
   }
   const change4=async (req)=>{
     try{
-      const url = "http://localhost:8000/add/feature4";
+      const url = "https://finny-backend.onrender.com/add/feature4";
       console.log(token)
       const res = await fetch(url, {method: 'POST', headers: {
       'Content-Type': 'application/json',
