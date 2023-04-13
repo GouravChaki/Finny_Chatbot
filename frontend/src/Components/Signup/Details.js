@@ -26,10 +26,10 @@ return (
     <input type="text" className="form-control" name="lastname" id="lastname" placeholder="Last name" aria-label="Last name" />
   </div>
 <div >
-  <input type="email" className="form-control" name="email" id="email" placeholder="Email" />
+  <input type="email" className="form-control" name="mail" id="email" placeholder="Email" />
   </div>
 <div>
-  <input type="password" className="form-control" name="password" id="password" placeholder="Password" />
+  <input type="password" className="form-control" name="pass" id="password" placeholder="Password" />
 </div>
 </div>
 <div className="d-grid gap-2 col-6 mx-auto">
