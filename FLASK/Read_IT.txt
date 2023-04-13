@@ -1,9 +1,0 @@
-To run async await in flask:
-
-pip install aioflask
-
-pip install asgiref
-
-pip install yahoo_fin
-
-pip install yfinance
