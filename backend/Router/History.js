@@ -11,19 +11,19 @@ const F2 = require('../Models/Feature2')
 const F3 = require('../Models/Feature3')
 const F4 = require('../Models/Feature4')
 const axios = require('axios')
-url1='http://127.0.0.1:5000/yours_price'
-url2='http://127.0.0.1:5000/compare'
-url3='http://127.0.0.1:5000/individual_company'            //these are flask urls
-url4='http://127.0.0.1:5000/historical_data'
+url1='https://flask-finny.onrender.com/yours_price'
+url2='https://flask-finny.onrender.com/compare'
+url3='https://flask-finny.onrender.com/individual_company'            //these are flask urls
+url4='https://flask-finny.onrender.com/historical_data'
 
 router.get('/history/feature1',fetch,async (req,res)=>{
-    console.log(req)
+    // console.log(req)
     try{
-    console.log(req.id)
+    // console.log(req.id)
     const feature1 = await F1.find({user_id: req.id.user}).limit(4)
     console.log(typeof(feature1))
     const f=JSON.stringify(feature1)
-    console.log(f)
+    // console.log(f)
     res.send(f)
     }
     catch(error){
