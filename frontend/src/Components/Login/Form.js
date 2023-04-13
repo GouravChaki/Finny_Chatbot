@@ -16,7 +16,7 @@ import Alert from './Alert'
       }
 return (
         <div style={{fontFamily:'Inter'}}>
-        <form>
+        <form autocomplete="off">
             <div className="mt-5">
                 
                 <input type="email" className="form-control" id="Email" name="Email" placeholder='Email'/>

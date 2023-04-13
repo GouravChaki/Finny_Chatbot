@@ -18,6 +18,7 @@ import ChatPage from './Components/Chatbot/ChatPage'
 import ContextData from './Components/Context_api/ContextData';
 import Chat from './Components/Chatbot2/Chat';
 import Search from './Components/Search_History/Search';
+import About from './Components/AboutUs/About';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -34,43 +35,20 @@ function App() {
         <Routes>
           <Route path="/signup" element={<Signup />}/>
         </Routes>
+        <Routes>
+          <Route path="/about" element={<About/>}/>
+        </Routes>
         {/* <Routes>
         <Route path="/finny" element={<ChatPage />}/>
         </Routes> */}
         <Routes>
         <Route path="/finny" element={<Chat />}/>
         </Routes>
-        <Routes>
+        {/* <Routes>
         <Route path="/search_history" element={<Search/>}/>
-        </Routes>
+        </Routes> */}
       </Router>
     </ContextData>
-    // <Chat/>
-    // <ContextData>
-    //   <Router>
-    //     <Maybeshownavbar>
-    //       <Navbar />
-    //     </Maybeshownavbar>
-    //     <Routes>
-    //       <Route path="/" element={<HomePage />}/>
-    //     </Routes>
-    //     <Routes>
-    //       <Route path="/login" element={<Login />} count={count} setCount={setCount}/>
-    //     </Routes>
-    //     <Routes>
-    //       <Route path="/signup" element={<Signup />}/>
-    //     </Routes>
-    //     {/* <Routes>
-    //     <Route path="/finny" element={<ChatPage />}/>
-    //     </Routes> */}
-    //     <Routes>
-    //     <Route path="/finny" element={<Chat />}/>
-    //     </Routes>
-    //     <Routes>
-    //     <Route path="/search_history" element={<Search/>}/>
-    //     </Routes>
-    //   </Router>
-    // </ContextData>
   );
 }
 

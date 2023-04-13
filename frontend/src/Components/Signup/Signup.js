@@ -13,11 +13,11 @@ import Lottie from "react-lottie";
     }
   };
   return (
-    <div className='card' style={{backgroundColor: 'black',borderRadius: '0px',height: '685px'}}>
-    <div className="d-flex flex-column flex-md-row"  style={{marginTop: '38px',backgroundColor: 'black',width: '1040px',marginLeft: '145px',height: '640px'}}>
-      <div className="container card border-primary w-70 mt-1 mb-5 ms-3" style={{backgroundColor: 'black',paddingBottom: '23px'}}>
-        <div className="col-md" style={{marginTop: '-61px'}}>
-          <div className="card-body mx-5 mt-5" style={{ fontFamily: "Inter" ,height: '350px',paddingTop: '1%',paddingBottom: '120px'}}>
+    <div className='card' style={{backgroundColor: 'black'}}>
+    <div className="d-flex mt-5" style={{backgroundColor: 'black',marginLeft:'8%'}}>
+    <div className="container card border-primary w-70 mt-1 mb-5 ms-3" style={{backgroundColor: 'black',width:'60%'}}>
+      <div className="col-md" style={{marginTop: '-61px'}}>
+          <div className="card-body mx-5 mt-5" style={{ fontFamily: "Inter" ,height: '280px',paddingTop: '1%'}}>
             <h2 className="card-title mt-5" style={{color: 'white',paddingTop: '1px'}}>Create your account</h2>
             <p className="card-text" style={{ color: "white" }}>
             You're one step away from joining our 
@@ -25,7 +25,7 @@ import Lottie from "react-lottie";
             </p>
            <Details />
             <p
-              className="card-text mt-4 text-center"
+              className="card-text text-center"
               style={{ color: "white" }}
             >
               Already a member?
@@ -36,7 +36,7 @@ import Lottie from "react-lottie";
           </div>
           <div
             className="m-5 d-flex justify-content-center"
-            style={{ width: "10%", height: "7%" }}
+            style={{ width: "10%", height: "7%"}}
           >
             <Button/>
           </div>
@@ -49,7 +49,7 @@ import Lottie from "react-lottie";
           style={{ marginTop: '-17px',borderRadius: "56px",height: '650px',width: '1300px' }}
         />
       </div> */}
-       <div className="signup" style={{paddingLeft: '23px'}}>
+      <div className="signup" style={{width:'60%'}}>
        
        <Lottie options={defaultOptions}/>
      </div>
