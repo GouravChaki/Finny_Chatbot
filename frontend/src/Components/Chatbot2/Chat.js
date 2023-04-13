@@ -203,8 +203,8 @@ message+='\n'+currentDate+':'+' '
       <div
         style={{
           backgroundImage: `url(${picture})`,
-          height: "1000px",
-          width: "210vh",
+          height: "100vh",
+          width: "100%",
         }}
       >
         {!(a.token) &&

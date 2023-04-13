@@ -25,14 +25,14 @@ return (
   <div className="col">
     <input type="text" className="form-control" name="lastname" id="lastname" placeholder="Last name" aria-label="Last name" />
   </div>
-<div >
+  <div className="mt-4">
   <input type="email" className="form-control" name="mail" id="email" placeholder="Email" />
   </div>
-<div>
+  <div className="mt-4">
   <input type="password" className="form-control" name="pass" id="password" placeholder="Password" />
 </div>
 </div>
-<div className="d-grid gap-2 col-6 mx-auto">
+<div className="d-grid gap-2 col-6 mx-auto mt-3">
   <button className="btn btn-primary" id="signupbt" type="button" onClick={alert} >Sign Up</button>
 </div>
 {a.alert.msg && <Alert/>}
