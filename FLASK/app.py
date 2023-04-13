@@ -1,6 +1,6 @@
 from flask import Flask, request, Response
 import requests
-import yfinance as yf #importing yahoo finance api
+import yfinance as yf #importing yahoo finance api # yahoo finance api used
 # from train import dance
 from Functions.return_model import ml_model
 import pandas as pd
@@ -11,7 +11,7 @@ from Functions.predict_price_2 import predict_data_2
 from yahoo_fin.stock_info import get_data
 app=Flask(__name__)
 
-@app.route('/yours_price',methods=['GET','POST'])
+@app.route('/yours_price',methods=['GET','POST']) # to get price recommended price (feature-1)
 async def hello():
   if (request.method=='POST'):
     price=request.get_json()#fetch price
@@ -60,7 +60,7 @@ async def hello():
     return companies_df
     # return 'hello'
 
-@app.route('/historical_data',methods=['GET','POST'])
+@app.route('/historical_data',methods=['GET','POST']) # to give historical data
 async def history():
     if (request.method=='POST'):
         #extract price from json shared
@@ -78,7 +78,7 @@ async def history():
         #     i=i.dt.strftime('%Y-%m-%d')
         return company_dataset
      
-@app.route('/compare',methods=['GET','POST'])
+@app.route('/compare',methods=['GET','POST']) # route to compare two nasdaqs
 async def compare():
     if (request.method=='POST'):
         #extract price from json shared
@@ -98,7 +98,7 @@ async def compare():
         }
         return json
 
-@app.route('/individual_company',methods=['GET','POST'])
+@app.route('/individual_company',methods=['GET','POST']) #route to get price of an individual company (feature-3)
 async def individual_company():
         if (request.method=='POST'):
             data=request.get_json()
