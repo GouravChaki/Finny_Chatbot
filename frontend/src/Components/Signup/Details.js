@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
+import './Details.css'
 import Alert from './Alert'
 import Context from '../Context_api/Context'
-import '../Signup/Details.css'
 export default function Details() {
   const a = useContext(Context)
   const alert=(event)=>{
@@ -17,8 +17,8 @@ export default function Details() {
   }
 return (
 <div style={{fontFamily:'Inter'}}> 
-<form autocomplete="off"> 
-<div className="row mt-4">
+<form> 
+<div className="row">
   <div className="col">
     <input type="text" className="form-control" name="firstname" id="firstname" placeholder="First name" aria-label="First name"/>
   </div>
@@ -26,13 +26,13 @@ return (
     <input type="text" className="form-control" name="lastname" id="lastname" placeholder="Last name" aria-label="Last name" />
   </div>
 <div >
-  <input type="email" className="form-control mt-4" name="mail" id="email" placeholder="Email" />
+  <input type="email" className="form-control" name="email" id="email" placeholder="Email" />
   </div>
 <div>
-  <input type="password" className="form-control mt-4" name="pass" id="password" placeholder="Password" />
+  <input type="password" className="form-control" name="password" id="password" placeholder="Password" />
 </div>
 </div>
-<div className="d-grid gap-2 col-6 mx-auto mt-4">
+<div className="d-grid gap-2 col-6 mx-auto">
   <button className="btn btn-primary" id="signupbt" type="button" onClick={alert} >Sign Up</button>
 </div>
 {a.alert.msg && <Alert/>}

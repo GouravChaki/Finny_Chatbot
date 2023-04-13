@@ -4,15 +4,15 @@ export default function button() {
     return (
       <div
       className="m-5 d-flex justify-content-center "
-      style={{ width: "1%", height: "9%",paddingLeft: '1px',paddingTop: '5px' }}
+      style={{ width: "5%", height: "7px",paddingLeft: '1px',paddingTop: '50px',marginTop: '10px'}}
     >
        <Link to="/"
-        className="btn -primary shadow-lg mb-1 w-100 h-100"
-        style={{marginTop: '75px',marginLeft: '58px' }}
+        className="btn -primary shadow-lg mb-5 w-100 h-100"
+        style={{ borderRadius: "50px" }}
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          style={{ marginLeft: "-12px"}}
+          style={{ marginLeft: "-12px" ,marginTop: "-51px"}}
           width="25"
           height="25"
           fill="white"
